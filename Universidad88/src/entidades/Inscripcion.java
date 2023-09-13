@@ -23,11 +23,11 @@ public class Inscripcion {
         this.nota = nota;
     }
 
-    public int getInscripcion() {
+    public int getidInscripcion() {
         return idInscripcion;
     }
 
-    public void setInscripcion(int inscripcion) {
+    public void setidInscripcion(int inscripcion) {
         this.idInscripcion = inscripcion;
     }
 

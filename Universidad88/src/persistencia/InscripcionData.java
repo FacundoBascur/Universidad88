@@ -1,5 +1,6 @@
 package persistencia;
 
+
 import entidades.Inscripcion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,7 +29,7 @@ public class InscripcionData {
             ResultSet rs = ps.getGeneratedKeys();
             
             if(rs.next()) {
-                insc.se(rs.getInt(1));
+                insc.setidInscripcion(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "La inscripción se realizó de manera correcta.");
             }
             
