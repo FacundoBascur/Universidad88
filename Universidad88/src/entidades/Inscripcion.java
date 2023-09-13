@@ -2,33 +2,33 @@ package entidades;
 
 public class Inscripcion {
 
-    private int inscripcion; 
+    private int idInscripcion;
     private Alumno alumno; 
     private Materia materia;
-    private double nota; 
+    private int nota; 
 
     public Inscripcion() {
     }
 
-    public Inscripcion(int inscripcion, Alumno alumno, Materia materia, double nota) {
-        this.inscripcion = inscripcion;
+    public Inscripcion(int idInscripcion, Alumno alumno, Materia materia, int nota) {
+        this.idInscripcion = idInscripcion;
         this.alumno = alumno;
         this.materia = materia;
         this.nota = nota;
     }
 
-    public Inscripcion(Alumno alumno, Materia materia, double nota) {
+    public Inscripcion(Alumno alumno, Materia materia, int nota) {
         this.alumno = alumno;
         this.materia = materia;
         this.nota = nota;
     }
 
     public int getInscripcion() {
-        return inscripcion;
+        return idInscripcion;
     }
 
     public void setInscripcion(int inscripcion) {
-        this.inscripcion = inscripcion;
+        this.idInscripcion = inscripcion;
     }
 
     public Alumno getAlumno() {
@@ -47,21 +47,21 @@ public class Inscripcion {
         this.materia = materia;
     }
 
-    public double getNota() {
+    public int getNota() {
         return nota;
     }
 
-    public void setNota(double nota) {
+    public void setNota(int nota) {
         this.nota = nota;
     }
 
     @Override
     public String toString() {
-        return "Inscripcion{" + "inscripcion=" + inscripcion + ", alumno=" + alumno + ", materia=" + materia + ", nota=" + nota + '}';
+        return "Inscripcion{" + "inscripcion=" + idInscripcion + ", alumno=" + alumno + ", materia=" + materia + ", nota=" + nota + '}';
     }
-    
-     
-    
-    
+
+   // public void setiDInscripto(int aInt) {
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //}
     
 }
