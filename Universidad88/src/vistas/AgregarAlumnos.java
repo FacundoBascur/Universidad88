@@ -161,7 +161,7 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
 
             if (jtApellido.getText().isEmpty() || jtNombre.getText().isEmpty() || jtDni.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No se admiten campos vacios");
-            } else if (Integer.parseInt(jtDni.getText()) <= 0 || jtDni.getText().length() < 6) {
+            } else if (Integer.parseInt(jtDni.getText()) <= 0 || jtDni.getText().length() <= 6) {
                 JOptionPane.showMessageDialog(null, "Formato de DNI incorrecto");
             } else {
 
