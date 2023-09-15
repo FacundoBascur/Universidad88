@@ -9,12 +9,12 @@ package vistas;
  *
  * @author sabri
  */
-public class FormAlumno extends javax.swing.JInternalFrame {
+public class BusqModifAlumnos extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form FormAlumno
+     * Creates new form BusqModifAlumnos
      */
-    public FormAlumno() {
+    public BusqModifAlumnos() {
         initComponents();
     }
 
