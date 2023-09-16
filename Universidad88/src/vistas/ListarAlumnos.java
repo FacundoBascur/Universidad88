@@ -48,7 +48,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         //Agregue este metodo para que la columna id no sea editable
         tablaAlumnos = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int columnIndex){
-                return columnIndex > 0;
+                return columnIndex > 0 && columnIndex < 5;
             }
         };
         tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
