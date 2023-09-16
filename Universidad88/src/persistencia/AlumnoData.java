@@ -12,15 +12,14 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class AlumnoData {
-    
-        private Connection con = null;
+
+    private Connection con = null;
 
     public AlumnoData() {
         con = Conexion.getConexion();
 
     }
 
-   
     public void guardarAlumnos(Alumno alumno) {
 
         String sql = "INSERT INTO alumno (dni,apellido,nombre,fechaNacimiento,estado)  VALUES (?,?,?,?,?)";
@@ -66,6 +65,7 @@ public class AlumnoData {
 
             while (rs.next()) {
                 alumno = new Alumno();
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
@@ -120,7 +120,7 @@ public class AlumnoData {
 
         Alumno alumno = null;
         String sql = "SELECT * FROM alumno WHERE dni = ?";
-        
+
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, dni);
@@ -146,12 +146,12 @@ public class AlumnoData {
         return alumno;
 
     }
-    
+
     public Alumno buscarPorId(int id) {
 
         Alumno alumno = null;
         String sql = "SELECT * FROM alumno WHERE idAlumno = ?";
-        
+
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
@@ -215,5 +215,28 @@ public class AlumnoData {
         }
 
     }
-    
+
+    public void modificarAlumno(int id, int dni, String ap, String nom, Date fn) {
+
+        Alumno alumno = null;
+        String sql = "UPDATE alumno SET dni = ?, apellido = ?, nombre = ? , fechaNacimiento = ? WHERE idAlumno = ? ";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, dni);
+            ps.setString(2, ap);
+            ps.setString(3, nom);
+            ps.setDate(4, fn);
+            ps.setInt(5, id);
+            int result = ps.executeUpdate();
+
+            if (result == 1) {
+                JOptionPane.showMessageDialog(null, "Alumno modificado con exito");
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a alumnos");
+        }
+
+    }
 }
