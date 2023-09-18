@@ -16,7 +16,7 @@ public class Main extends javax.swing.JFrame {
         registroAlumnos = new javax.swing.JMenuItem();
         busquedaModificiacion = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMFormularioMateria = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -78,9 +78,14 @@ public class Main extends javax.swing.JFrame {
 
         jMenu4.setText("Materia");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
-        jMenuItem2.setText("Formulario de materia");
-        jMenu4.add(jMenuItem2);
+        jMFormularioMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
+        jMFormularioMateria.setText("Formulario de materia");
+        jMFormularioMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMFormularioMateriaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMFormularioMateria);
 
         jMenuBar2.add(jMenu4);
 
@@ -152,6 +157,16 @@ public class Main extends javax.swing.JFrame {
         agre.setLocation(250, 208);
     }//GEN-LAST:event_registroAlumnosActionPerformed
 
+    private void jMFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormularioMateriaActionPerformed
+       escritorio.removeAll();
+        escritorio.repaint();
+      FormularioMateria form=new FormularioMateria();
+        form.setVisible(true);
+        escritorio.add(form);
+        escritorio.moveToFront(form);
+        form.setLocation(250, 208);
+    }//GEN-LAST:event_jMFormularioMateriaActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -167,13 +182,13 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem busquedaModificiacion;
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuItem jMFormularioMateria;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

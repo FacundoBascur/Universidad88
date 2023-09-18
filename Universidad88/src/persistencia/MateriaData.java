@@ -92,7 +92,7 @@ public class MateriaData {
             
             
         } catch (SQLException ex) {
-          JOptionPane.showMessageDialog(null, "Error al intentar ingresara la"
+          JOptionPane.showMessageDialog(null, "Error al intentar ingresar a la"
                     + "tabla materia");
         }
     }
