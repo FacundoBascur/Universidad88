@@ -178,17 +178,17 @@ public class AlumnoData {
 
     }
 
-    public void darDeBajaPorId(int id) {
+    public void darDeAlta(int dni) {
 
-        String sql = "UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
+        String sql = "UPDATE alumno SET estado = 1 WHERE dni = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, dni);
             int result = ps.executeUpdate();
 
             if (result == 1) {
-                JOptionPane.showMessageDialog(null, "Alumno dado de baja exitosamente");
+                JOptionPane.showMessageDialog(null, "Alumno dado de alta exitosamente");
             }
 
         } catch (SQLException ex) {
