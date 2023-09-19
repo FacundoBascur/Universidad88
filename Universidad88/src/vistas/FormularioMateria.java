@@ -61,6 +61,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         BEliminar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BEliminar.setForeground(new java.awt.Color(51, 51, 51));
         BEliminar.setLabel("Eliminar");
+        BEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BEliminarActionPerformed(evt);
+            }
+        });
 
         BNuevo.setBackground(new java.awt.Color(153, 153, 153));
         BNuevo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -214,13 +219,20 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
        jTNombre.setText("");
        jTAnio.setText("");
        CActivo2.setSelected(false);
-       
-   
-   
-   
-   
    }
     }//GEN-LAST:event_BNuevoActionPerformed
+
+    private void BEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEliminarActionPerformed
+       
+        if(jTId!=null && jTNombre!=null && jTAnio!=null && CActivo2!=null){
+           CActivo2.setSelected(false);
+       
+       
+       
+       
+       
+       }
+    }//GEN-LAST:event_BEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

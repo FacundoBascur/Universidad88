@@ -206,6 +206,9 @@
             </Property>
             <Property name="label" type="java.lang.String" value="Eliminar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BEliminarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="java.awt.Button" name="BNuevo">
           <Properties>
