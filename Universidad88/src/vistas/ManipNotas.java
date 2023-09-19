@@ -20,7 +20,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
         List<Alumno> list = alum.listarAlumnos();
         
         list.forEach((alumno) -> {
-            listaAlumnos.addItem(new Object[]{alumno.getDni(),alumno.getApellido(),alumno.getNombre()});
+            listaAlumnos.addItem(alumno.toString());
         });
         
     }
@@ -50,8 +50,8 @@ public class ManipNotas extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Seleccione un Alumno");
 
-        listaAlumnos.setBackground(new java.awt.Color(204, 204, 204));
-        listaAlumnos.setForeground(new java.awt.Color(255, 255, 255));
+        listaAlumnos.setBackground(new java.awt.Color(255, 255, 255));
+        listaAlumnos.setForeground(new java.awt.Color(0, 0, 0));
         listaAlumnos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         listaAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +117,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
     private javax.swing.JButton guardarNota;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<Object> listaAlumnos;
+    private javax.swing.JComboBox<String> listaAlumnos;
     private javax.swing.JTable tablaNotas;
     // End of variables declaration//GEN-END:variables
 }
