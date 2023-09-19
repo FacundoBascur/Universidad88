@@ -20,7 +20,7 @@ public class Main extends javax.swing.JFrame {
         jMListarMaterias = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        maniNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
@@ -88,7 +88,6 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu4.add(jMFormularioMateria);
 
-        jMListarMaterias.setIcon(new javax.swing.ImageIcon("C:\\Users\\sabri\\Documents\\GitHub\\Imagenes proyecto\\Imagenes proyecto\\seleccionar.png")); // NOI18N
         jMListarMaterias.setText("Listar Materias");
         jMListarMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,9 +109,14 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem3);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
-        jMenuItem4.setText("Manipulación de notas");
-        jMenu5.add(jMenuItem4);
+        maniNotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
+        maniNotas.setText("Manipulación de notas");
+        maniNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maniNotasActionPerformed(evt);
+            }
+        });
+        jMenu5.add(maniNotas);
 
         jMenuBar2.add(jMenu5);
 
@@ -187,6 +191,16 @@ public class Main extends javax.swing.JFrame {
         listar.setLocation(250, 208);
     }//GEN-LAST:event_jMListarMateriasActionPerformed
 
+    private void maniNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maniNotasActionPerformed
+    escritorio.removeAll();
+    escritorio.repaint();
+    ManipNotas notas = new ManipNotas(); 
+    notas.setVisible(true);
+    escritorio.add(notas);
+    escritorio.moveToFront(notas);
+    notas.setLocation(250, 208);
+    }//GEN-LAST:event_maniNotasActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -211,9 +225,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem maniNotas;
     private javax.swing.JMenuItem registroAlumnos;
     // End of variables declaration//GEN-END:variables
 }
