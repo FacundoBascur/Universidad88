@@ -22,7 +22,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         maniNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        alumXmateria = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,9 +122,14 @@ public class Main extends javax.swing.JFrame {
 
         jMenu6.setText("Consultas");
 
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
-        jMenuItem5.setText("Alumnos por materia");
-        jMenu6.add(jMenuItem5);
+        alumXmateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
+        alumXmateria.setText("Alumnos por materia");
+        alumXmateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alumXmateriaActionPerformed(evt);
+            }
+        });
+        jMenu6.add(alumXmateria);
 
         jMenuBar2.add(jMenu6);
 
@@ -201,6 +206,16 @@ public class Main extends javax.swing.JFrame {
     notas.setLocation(250, 208);
     }//GEN-LAST:event_maniNotasActionPerformed
 
+    private void alumXmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumXmateriaActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        AlumnosXmateria alumxM = new AlumnosXmateria();
+        alumxM.setVisible(true);
+        escritorio.add(alumxM);
+        escritorio.moveToFront(alumxM);
+        alumxM.setLocation(250, 208);
+    }//GEN-LAST:event_alumXmateriaActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -214,6 +229,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem alumXmateria;
     private javax.swing.JMenuItem busquedaModificiacion;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem jMFormularioMateria;
@@ -225,7 +241,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem maniNotas;
     private javax.swing.JMenuItem registroAlumnos;
