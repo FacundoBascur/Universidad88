@@ -17,6 +17,7 @@ public class Main extends javax.swing.JFrame {
         busquedaModificiacion = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMFormularioMateria = new javax.swing.JMenuItem();
+        jMListarMaterias = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -86,6 +87,15 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jMenu4.add(jMFormularioMateria);
+
+        jMListarMaterias.setIcon(new javax.swing.ImageIcon("C:\\Users\\sabri\\Documents\\GitHub\\Imagenes proyecto\\Imagenes proyecto\\seleccionar.png")); // NOI18N
+        jMListarMaterias.setText("Listar Materias");
+        jMListarMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMListarMateriasActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMListarMaterias);
 
         jMenuBar2.add(jMenu4);
 
@@ -167,6 +177,16 @@ public class Main extends javax.swing.JFrame {
         form.setLocation(250, 208);
     }//GEN-LAST:event_jMFormularioMateriaActionPerformed
 
+    private void jMListarMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMListarMateriasActionPerformed
+         escritorio.removeAll();
+        escritorio.repaint();
+     ListarMaterias listar=new ListarMaterias();
+        listar.setVisible(true);
+        escritorio.add(listar);
+        escritorio.moveToFront(listar);
+        listar.setLocation(250, 208);
+    }//GEN-LAST:event_jMListarMateriasActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -183,6 +203,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem busquedaModificiacion;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem jMFormularioMateria;
+    private javax.swing.JMenuItem jMListarMaterias;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
