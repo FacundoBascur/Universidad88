@@ -141,7 +141,8 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
 
-        if (tablaAlumnos.getSelectedRow() == -1) {
+        try {
+              if (tablaAlumnos.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "No se ha realizado ninguna modificacion");
         } else {
 
@@ -152,16 +153,20 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
             String nom = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 3).toString();
             Date fecha = Date.valueOf(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 4).toString());
 
+      
             String[] list = {"Si", "No"};
             int opcion = JOptionPane.showOptionDialog(null, " Confirmar modificacion", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); // muestra un cuadro de dialogo para confirmar la modificacion del alumno devuelve 0 o 1 dependiendo la opcion que se elija
 
-            if (opcion == 0) {
+            if (opcion == 0 ) {
                 alumno.modificarAlumno(id, dni, ap, nom, fecha);
 
             } else {
                 JOptionPane.showMessageDialog(this, "Modificacion cancelada");
             }
 
+        }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error en la modificacion - el DNI colocado no es correcto, excede limites de digitos");
         }
 
         buscarActionPerformed(evt);
@@ -173,7 +178,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         String opcion = opciones.getSelectedItem().toString();
 
         if (opcion.equals("Por ID")) {
-
+            
             try {
                 if (jtidentificador.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Coloque ID para continuar");
@@ -186,6 +191,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                     Alumno alum = alumno.buscarPorId(Integer.parseInt(jtidentificador.getText()));
 
                     tabla.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), alum.getApellido(), alum.getNombre(), alum.getFechaNac(), alum.isActivo()});
+                    jtidentificador.setText("");
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Error - caracter invalido");
@@ -194,10 +200,10 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "El alumno con el ID solicitado no se encuentra en la base de datos");
             }
 
-            jtidentificador.setText("");
+            
 
         } else if (opcion.equals("Por DNI")) {
-
+           
             try {
                 if (jtidentificador.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Coloque DNI para continuar");
@@ -210,6 +216,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                     Alumno alum = alumno.buscarPorDni(Integer.parseInt(jtidentificador.getText()));
 
                     tabla.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), alum.getApellido(), alum.getNombre(), alum.getFechaNac(), alum.isActivo()});
+                    jtidentificador.setText("");
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Error - caracter invalido");
@@ -218,9 +225,10 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "El alumno con el DNI solicitado no se encuentra en la base de datos");
             }
 
-            jtidentificador.setText("");
+            
 
         } else if (opcion.equals("Todos")) {
+            jtidentificador.setText("");
             try {
                 tabla.setRowCount(0);
                 List<Alumno> lista = alumno.listarAlumnos();
@@ -235,6 +243,8 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una opción valida para continuar");
         }
+        
+        
     }//GEN-LAST:event_buscarActionPerformed
 
     private void bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaActionPerformed
