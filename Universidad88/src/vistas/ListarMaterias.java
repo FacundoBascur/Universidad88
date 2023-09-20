@@ -10,9 +10,9 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
      private DefaultTableModel model = new DefaultTableModel();
 MateriaData materia=new MateriaData();
    
-/*public boolean inCelEditable(int f, int c) {
-        return true;
-    }*/
+public boolean inCelEditable(int f, int c) {
+        return false;
+    }
    
     public ListarMaterias() {
         initComponents();
@@ -112,7 +112,7 @@ private void armarCabecera() {
         model.addColumn("Nombre");
         model.addColumn("Año");
         model.addColumn("Estado");
-      
+      jTabla.setModel(model);
       
 
     }

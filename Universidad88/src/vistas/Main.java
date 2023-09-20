@@ -1,4 +1,7 @@
 package vistas;
+
+import javax.swing.JFrame;
+
 public class Main extends javax.swing.JFrame {
 
     public Main() {
@@ -23,7 +26,7 @@ public class Main extends javax.swing.JFrame {
         maniNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         alumXmateria = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
+        jMSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,8 +140,13 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu6);
 
-        jMenu7.setText("Salir");
-        jMenuBar2.add(jMenu7);
+        jMSalir.setText("Salir");
+        jMSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMSalirActionPerformed(evt);
+            }
+        });
+        jMenuBar2.add(jMSalir);
 
         setJMenuBar(jMenuBar2);
 
@@ -220,6 +228,10 @@ public class Main extends javax.swing.JFrame {
         alumxM.setLocation(250, 208);
     }//GEN-LAST:event_alumXmateriaActionPerformed
 
+    private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
+ 
+    }//GEN-LAST:event_jMSalirActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -238,11 +250,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem jMFormularioMateria;
     private javax.swing.JMenuItem jMListarMaterias;
+    private javax.swing.JMenu jMSalir;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
