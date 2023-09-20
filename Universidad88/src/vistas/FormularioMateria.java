@@ -1,6 +1,8 @@
 
 package vistas;
 
+import entidades.Materia;
+import javax.swing.JOptionPane;
 import persistencia.MateriaData;
 
 
@@ -81,6 +83,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         BGuardar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BGuardar.setForeground(new java.awt.Color(51, 51, 51));
         BGuardar.setLabel("Guardar");
+        BGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BGuardarActionPerformed(evt);
+            }
+        });
 
         BSalir.setBackground(new java.awt.Color(153, 153, 153));
         BSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -227,12 +234,42 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         if(jTId!=null && jTNombre!=null && jTAnio!=null && CActivo2!=null){
            CActivo2.setSelected(false);
        
+     }
+    }//GEN-LAST:event_BEliminarActionPerformed
+
+    private void BGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGuardarActionPerformed
+    
+       try{
+       if(!jTId.getText().isEmpty()){
+       JOptionPane.showMessageDialog(null, "El campo Id debe estar vacío.");
+       }else if(jTNombre.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "El campo Nombre no puede estar vacío.");
+       }else if (jTAnio.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "El campo Año no puede estar vacío.");
+       }else if(Integer.parseInt(jTNombre.getText())==1){
+       JOptionPane.showMessageDialog(null, "El campo Nombre no puede ser numérico.");
+       }else if(jTAnio.getText()==""){
+       JOptionPane.showMessageDialog(null, "El campo Año debe ser numérico.");
+       }else if(jTAnio.getText().length() <4 || jTAnio.getText().length()>4 ){
+           JOptionPane.showMessageDialog(null, "El campo Año debe contener cuatro dígitos.");
+       }else{
+       
+       materia.guardarMateria(new Materia(jTNombre.getText(), Integer.parseInt(jTAnio.getText()), CActivo2.getHideActionText()));
+       
+       JOptionPane.showMessageDialog(null, "La materia se agregó exitosamente.");
        
        
        
        
        }
-    }//GEN-LAST:event_BEliminarActionPerformed
+       }catch(NumberFormatException | IndexOutOfBoundsException |NullPointerException  p){
+         JOptionPane.showMessageDialog(null, "Error al registrar, campos en formato incorrecto.");
+       }
+        jTId.setText("");
+       jTNombre.setText("");
+       jTAnio.setText("");
+       CActivo2.setSelected(false);
+    }//GEN-LAST:event_BGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
