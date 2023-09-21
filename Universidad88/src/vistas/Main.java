@@ -1,6 +1,7 @@
 package vistas;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
 
@@ -141,9 +142,9 @@ public class Main extends javax.swing.JFrame {
         jMenuBar2.add(jMenu6);
 
         jMSalir.setText("Salir");
-        jMSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMSalirActionPerformed(evt);
+        jMSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMSalirMouseClicked(evt);
             }
         });
         jMenuBar2.add(jMSalir);
@@ -228,9 +229,14 @@ public class Main extends javax.swing.JFrame {
         alumxM.setLocation(250, 208);
     }//GEN-LAST:event_alumXmateriaActionPerformed
 
-    private void jMSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMSalirActionPerformed
- 
-    }//GEN-LAST:event_jMSalirActionPerformed
+    private void jMSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMSalirMouseClicked
+       String[] list = {"Si", "No"};
+                int opcion = JOptionPane.showOptionDialog(null, "Confirmar cierre de programa", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+
+                if (opcion == 0) {
+                    dispose();
+                }
+    }//GEN-LAST:event_jMSalirMouseClicked
 
     public static void main(String args[]) {
 
@@ -238,8 +244,7 @@ public class Main extends javax.swing.JFrame {
             public void run() {
                 Main frame = new Main();
                 frame.setLocationRelativeTo(null); //Para que se ejecute en el centro de la pantalla
-                frame.setVisible(true);
-               
+                frame.setVisible(true); 
             }
         });
     }
