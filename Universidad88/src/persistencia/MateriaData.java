@@ -123,9 +123,9 @@ public class MateriaData {
     }
 
     public List<Materia> listarMaterias() {
-
-        String sql = "SELECT idMateria, nombre, anio FROM Materia WHERE estado=?";
-        ArrayList<Materia> materias = new ArrayList<>();
+        Materia materia=null;
+        String sql = "SELECT * FROM materia";
+        ArrayList<Materia> listaMaterias = new ArrayList<>();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -133,13 +133,13 @@ public class MateriaData {
 
             while (rs.next()) {
 
-                Materia materia = new Materia();
+                materia = new Materia();
                 materia.setIdMateria(rs.getInt("id Materia"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("anio"));
                 materia.setActivo(rs.getBoolean("estado"));
 
-                materias.add(materia);
+                listaMaterias.add(materia);
 
                 ps.close();
 
@@ -149,7 +149,7 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos");
         }
 
-        return materias;
+        return listaMaterias;
 
     }
 
