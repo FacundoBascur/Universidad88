@@ -53,6 +53,11 @@ public boolean inCelEditable(int f, int c) {
         jScrollPane1.setViewportView(jTabla);
 
         jCSeleccionar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Todas", "Activas", "Inactivas" }));
+        jCSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCSeleccionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,6 +101,18 @@ public boolean inCelEditable(int f, int c) {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCSeleccionarActionPerformed
+    
+     String opciones=jCSeleccionar.getSelectedItem().toString();
+     
+     if(opciones.equals("")){}
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jCSeleccionarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
