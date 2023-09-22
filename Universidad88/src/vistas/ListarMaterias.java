@@ -115,8 +115,8 @@ public boolean inCelEditable(int f, int c) {
      
        model.setRowCount(0);
              
-
-                for(Materia mat: materia.listarMaterias()){
+       List<Materia> listaMaterias=materia.listarMaterias();
+                for(Materia mat: listaMaterias){
                     model.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});
                             
      }

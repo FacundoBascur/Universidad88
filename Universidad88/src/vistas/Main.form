@@ -57,7 +57,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMListarMaterias">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/seleccionar.png"/>
+                  <Image iconType="2" name="C:\Users\sabri\Documents\GitHub\Imagenes proyecto\Imagenes proyecto\seleccionar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Listar Materias"/>
               </Properties>

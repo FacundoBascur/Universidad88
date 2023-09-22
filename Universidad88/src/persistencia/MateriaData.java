@@ -121,18 +121,20 @@ public class MateriaData {
     }
 
     public List<Materia> listarMaterias() {
-        Materia materia=null;
-        String sql = "SELECT * FROM materia";
+       Materia materia=null;
+      
        List<Materia> listaMaterias = new ArrayList<>();
-
+  
         try {
+            String sql = "SELECT * FROM materia";
             PreparedStatement ps = con.prepareStatement(sql);
+          
             ResultSet rs = ps.executeQuery(sql);
 
             while (rs.next()) {
 
-                materia = new Materia();
-                materia.setIdMateria(rs.getInt("id Materia"));
+              materia = new Materia();
+                materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("anio"));
                 materia.setActivo(rs.getBoolean("estado"));
@@ -152,11 +154,13 @@ public class MateriaData {
     }
  public List<Materia> listarMateriasPorEstado(boolean estado) {
         Materia materia=null;
-        String sql = "SELECT * FROM materia WHERE estado = ?";
+       
         List<Materia> listaMateriasPorEstado = new ArrayList<>();
-
+        String sql = "SELECT * FROM materia WHERE estado = ?";
         try {
+           
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setBoolean(1, estado);
             ResultSet rs = ps.executeQuery(sql);
 
             while (rs.next()) {
