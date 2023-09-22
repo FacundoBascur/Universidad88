@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vistas;
 
 import entidades.Alumno;
@@ -159,15 +154,15 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         try {
 
-            if (jtApellido.getText().isEmpty() || jtNombre.getText().isEmpty() || jtDni.getText().isEmpty()) {
+            if (jtApellido.getText().isEmpty() || jtNombre.getText().isEmpty() || jtDni.getText().isEmpty()) { // verifica si los jtextfield estan vacios
                 JOptionPane.showMessageDialog(null, "No se admiten campos vacios");
-            } else if (Integer.parseInt(jtDni.getText()) <= 0 || jtDni.getText().length() <= 6) {
+            } else if (Integer.parseInt(jtDni.getText()) <= 0 || jtDni.getText().length() <= 6) { //verifica si los numeros son negativos o muy extensos
                 JOptionPane.showMessageDialog(null, "Formato de DNI incorrecto");
             } else {
 
                 LocalDate fecha = jcFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-                alumno.guardarAlumnos(new Alumno(Integer.parseInt(jtDni.getText()), jtApellido.getText(), jtNombre.getText(), fecha, activo.isSelected()));
+                alumno.guardarAlumnos(new Alumno(Integer.parseInt(jtDni.getText()), jtApellido.getText(), jtNombre.getText(), fecha, activo.isSelected())); // crea el alumno, llama al metodo y lo setea en la base de datos
 
                 jtApellido.setText("");
                 jtDni.setText("");

@@ -31,6 +31,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         buscar = new javax.swing.JButton();
         bajaAlta = new javax.swing.JButton();
         salir = new javax.swing.JButton();
+        limpiar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setTitle("                                                         Busqueda de Alumnos");
@@ -76,6 +77,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
 
         buscar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         buscar.setForeground(new java.awt.Color(0, 0, 0));
+        buscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\buscar.png")); // NOI18N
         buscar.setText("Buscar");
         buscar.setBorder(null);
         buscar.setBorderPainted(false);
@@ -98,11 +100,21 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
 
         salir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         salir.setForeground(new java.awt.Color(0, 0, 0));
+        salir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\cerrar-sesion.png")); // NOI18N
         salir.setBorder(null);
         salir.setBorderPainted(false);
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
+            }
+        });
+
+        limpiar.setForeground(new java.awt.Color(0, 0, 0));
+        limpiar.setText("Limpiar");
+        limpiar.setBorder(null);
+        limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarActionPerformed(evt);
             }
         });
 
@@ -115,29 +127,32 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                         .addComponent(bajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
+                        .addGap(94, 94, 94)
                         .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(jtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +160,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(bajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         opciones.getAccessibleContext().setAccessibleDescription("");
@@ -156,30 +171,29 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
 
         try {
-              if (tablaAlumnos.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(null, "No se ha realizado ninguna modificacion");
-        } else {
-
-            //En estos variables se guardan los datos obtenidos de la tabla seleccionada. "tabla.getValueAt(tablaAlumnos.getSelectedRow()"
-            int id = Integer.parseInt(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 0).toString());
-            int dni = Integer.parseInt(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 1).toString());
-            String ap = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 2).toString();
-            String nom = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 3).toString();
-            Date fecha = Date.valueOf(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 4).toString());
-
-      
-            String[] list = {"Si", "No"};
-            int opcion = JOptionPane.showOptionDialog(null, " Confirmar modificacion", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); // muestra un cuadro de dialogo para confirmar la modificacion del alumno devuelve 0 o 1 dependiendo la opcion que se elija
-
-            if (opcion == 0 ) {
-                alumno.modificarAlumno(id, dni, ap, nom, fecha);
-
+            if (tablaAlumnos.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(null, "No se ha realizado ninguna modificacion");
             } else {
-                JOptionPane.showMessageDialog(this, "Modificacion cancelada");
-            }
 
-        }
-        } catch (NumberFormatException e) {
+                //En estos variables se guardan los datos obtenidos al seleccionar una fila de la tabla. "tabla.getValueAt(tablaAlumnos.getSelectedRow --> selecciona fila"
+                int id = Integer.parseInt(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 0).toString());
+                int dni = Integer.parseInt(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 1).toString());
+                String ap = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 2).toString();
+                String nom = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 3).toString();
+                Date fecha = Date.valueOf(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 4).toString());
+
+                String[] list = {"Si", "No"};
+                int opcion = JOptionPane.showOptionDialog(null, " Confirmar modificacion", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); // muestra un cuadro de dialogo para confirmar la modificacion del alumno devuelve 0 o 1 dependiendo la opcion que se elija
+
+                if (opcion == 0) {
+                    alumno.modificarAlumno(id, dni, ap, nom, fecha);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Modificacion cancelada");
+                }
+
+            }
+        } catch (NumberFormatException | NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Error en la modificacion - el DNI colocado no es correcto, excede limites de digitos");
         }
 
@@ -189,10 +203,10 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
 
-        String opcion = opciones.getSelectedItem().toString();
+        String opcion = opciones.getSelectedItem().toString(); // devuelve en string la opcion que tenemos elegida en el combo box
 
         if (opcion.equals("Por ID")) {
-            
+
             try {
                 if (jtidentificador.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Coloque ID para continuar");
@@ -205,7 +219,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                     Alumno alum = alumno.buscarPorId(Integer.parseInt(jtidentificador.getText()));
 
                     tabla.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), alum.getApellido(), alum.getNombre(), alum.getFechaNac(), alum.isActivo()});
-                    jtidentificador.setText("");
+
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Error - caracter invalido");
@@ -214,10 +228,8 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "El alumno con el ID solicitado no se encuentra en la base de datos");
             }
 
-            
-
         } else if (opcion.equals("Por DNI")) {
-           
+
             try {
                 if (jtidentificador.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Coloque DNI para continuar");
@@ -230,7 +242,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                     Alumno alum = alumno.buscarPorDni(Integer.parseInt(jtidentificador.getText()));
 
                     tabla.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), alum.getApellido(), alum.getNombre(), alum.getFechaNac(), alum.isActivo()});
-                    jtidentificador.setText("");
+
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Error - caracter invalido");
@@ -239,8 +251,6 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "El alumno con el DNI solicitado no se encuentra en la base de datos");
             }
 
-            
-
         } else if (opcion.equals("Todos")) {
             jtidentificador.setText("");
             try {
@@ -248,17 +258,18 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 List<Alumno> lista = alumno.listarAlumnos();
 
                 lista.forEach((alum) -> {
-                    tabla.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), alum.getApellido(), alum.getNombre(), alum.getFechaNac(), alum.isActivo()});
+                    tabla.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), alum.getApellido(), alum.getNombre(), alum.getFechaNac(), alum.isActivo()}); // metodo para setear el alumno a la tabla. creo el objeto y lo agrego
                 });
 
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Error");
+            } catch (NumberFormatException | NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "Error - base de datos vacia");
             }
+            
         } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una opción valida para continuar");
         }
-        
-        
+
+
     }//GEN-LAST:event_buscarActionPerformed
 
     private void bajaAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaAltaActionPerformed
@@ -269,11 +280,12 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
 
             int dni = Integer.parseInt(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 1).toString());
             String ap = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 2).toString();
+            String nom = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 3).toString();
             boolean estado = Boolean.parseBoolean(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 5).toString());
 
             if (estado) {
                 String[] list = {"Si", "No"};
-                int opcion = JOptionPane.showOptionDialog(null, "Confirmar Baja del alumno \n" + ap + "\nDNI = " + dni, "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+                int opcion = JOptionPane.showOptionDialog(null, "Confirmar Baja del alumno \n" + ap + " " + nom + "\nDNI = " + dni, "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
 
                 if (opcion == 0) {
                     alumno.darDeBajaPorDni(dni);
@@ -283,7 +295,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 }
             } else {
                 String[] list = {"Si", "No"};
-                int opcion = JOptionPane.showOptionDialog(null, "Confirmar Alta del alumno \n" + ap + "\nDNI = " + dni, "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+                int opcion = JOptionPane.showOptionDialog(null, "Confirmar Alta del alumno \n" + ap + " " + nom + "\nDNI = " + dni, "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
 
                 if (opcion == 0) {
                     alumno.darDeAlta(dni);
@@ -294,13 +306,15 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
             }
 
         }
-
-        
     }//GEN-LAST:event_bajaAltaActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-           this.dispose();
+        this.dispose(); // metodo para cerrar la vista
     }//GEN-LAST:event_salirActionPerformed
+
+    private void limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarActionPerformed
+        jtidentificador.setText("");
+    }//GEN-LAST:event_limpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -309,6 +323,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
     private javax.swing.JButton buscar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jtidentificador;
+    private javax.swing.JButton limpiar;
     private javax.swing.JComboBox<String> opciones;
     private javax.swing.JButton salir;
     private javax.swing.JTable tablaAlumnos;

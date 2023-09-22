@@ -38,25 +38,25 @@ public class Main extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 981, Short.MAX_VALUE)
+            .addGap(0, 993, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 704, Short.MAX_VALUE)
+            .addGap(0, 688, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1001, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jMenuBar2.setBackground(new java.awt.Color(204, 204, 204));
@@ -94,7 +94,7 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu4.add(jMFormularioMateria);
 
-        jMListarMaterias.setIcon(new javax.swing.ImageIcon("C:\\Users\\sabri\\Documents\\GitHub\\Imagenes proyecto\\Imagenes proyecto\\seleccionar.png")); // NOI18N
+        jMListarMaterias.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\seleccionar.png")); // NOI18N
         jMListarMaterias.setText("Listar Materias");
         jMListarMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +140,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu6);
 
+        jMSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\apagar.png")); // NOI18N
         jMSalir.setText("Salir");
         jMSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -165,7 +166,7 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void busquedaModificiacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaModificiacionActionPerformed
@@ -173,6 +174,7 @@ public class Main extends javax.swing.JFrame {
         escritorio.repaint();
         ListarAlumnos listar = new ListarAlumnos();
         listar.setVisible(true);
+        listar.setFrameIcon(null); // para que no aparezca el icono por defecto de la zona izquierda
         escritorio.add(listar);
         escritorio.moveToFront(listar);
         listar.setLocation(228, 125);
@@ -183,39 +185,42 @@ public class Main extends javax.swing.JFrame {
         escritorio.repaint();
         AgregarAlumnos agre = new AgregarAlumnos();
         agre.setVisible(true);
+        agre.setFrameIcon(null);
         escritorio.add(agre);
         escritorio.moveToFront(agre);
         agre.setLocation(250, 208);
     }//GEN-LAST:event_registroAlumnosActionPerformed
 
     private void jMFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFormularioMateriaActionPerformed
-       escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
-      FormularioMateria form=new FormularioMateria();
+        FormularioMateria form = new FormularioMateria();
         form.setVisible(true);
+        form.setFrameIcon(null);
         escritorio.add(form);
         escritorio.moveToFront(form);
         form.setLocation(250, 208);
     }//GEN-LAST:event_jMFormularioMateriaActionPerformed
 
     private void jMListarMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMListarMateriasActionPerformed
-         escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
-     ListarMaterias listar=new ListarMaterias();
+        ListarMaterias listar = new ListarMaterias();
         listar.setVisible(true);
+        listar.setFrameIcon(null);
         escritorio.add(listar);
         escritorio.moveToFront(listar);
         listar.setLocation(250, 208);
     }//GEN-LAST:event_jMListarMateriasActionPerformed
 
     private void maniNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maniNotasActionPerformed
-    escritorio.removeAll();
-    escritorio.repaint();
-    ManipNotas notas = new ManipNotas(); 
-    notas.setVisible(true);
-    escritorio.add(notas);
-    escritorio.moveToFront(notas);
-    notas.setLocation(250, 208);
+        escritorio.removeAll();
+        escritorio.repaint();
+        ManipNotas notas = new ManipNotas();
+        notas.setVisible(true);
+        escritorio.add(notas);
+        escritorio.moveToFront(notas);
+        notas.setLocation(250, 208);
     }//GEN-LAST:event_maniNotasActionPerformed
 
     private void alumXmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumXmateriaActionPerformed
@@ -229,12 +234,12 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_alumXmateriaActionPerformed
 
     private void jMSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMSalirMouseClicked
-       String[] list = {"Si", "No"};
-                int opcion = JOptionPane.showOptionDialog(null, "Confirmar cierre de programa", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+        String[] list = {"Si", "No"};
+        int opcion = JOptionPane.showOptionDialog(null, "Confirmar cierre de programa", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); //te devuelve el indice de la lista. si elegis "si" devuelve 0 y con "no" devuelve 1 , etc
 
-                if (opcion == 0) {
-                    dispose();
-                }
+        if (opcion == 0) {
+            dispose();
+        }
     }//GEN-LAST:event_jMSalirMouseClicked
 
     public static void main(String args[]) {
@@ -242,8 +247,10 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Main frame = new Main();
+                frame.setIconImage(null);
                 frame.setLocationRelativeTo(null); //Para que se ejecute en el centro de la pantalla
-                frame.setVisible(true); 
+                frame.setVisible(true);
+
             }
         });
     }
