@@ -14,7 +14,7 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
 MateriaData materia=new MateriaData();
    
 public boolean inCelEditable(int f, int c) {
-        return false;
+        return true;
     }
    
     public ListarMaterias() {
@@ -110,6 +110,7 @@ public boolean inCelEditable(int f, int c) {
      String opciones=jCSeleccionar.getSelectedItem().toString();
     try{ 
      if(opciones.equals("<Seleccionar>")){
+          model.setRowCount(0);
      JOptionPane.showMessageDialog(null, "Debe seleccionar una de las opciones.");
      }else if(opciones.equals("Todas")){
      
@@ -117,6 +118,28 @@ public boolean inCelEditable(int f, int c) {
              
        List<Materia> listaMaterias=materia.listarMaterias();
                 for(Materia mat: listaMaterias){
+                   
+                    model.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});
+                    }     
+     }
+     else if(opciones.equals("Activas")){
+     
+       model.setRowCount(0);
+             
+       List<Materia> listaMaterias=materia.listarMaterias();
+                for(Materia mat: listaMaterias){
+                    if(mat.isActivo()==true){
+                    model.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});
+                            
+     }
+                }
+     }else if(opciones.equals("Inactivas")){
+     
+       model.setRowCount(0);
+             
+       List<Materia> listaMaterias=materia.listarMaterias();
+                for(Materia mat: listaMaterias){
+              if(mat.isActivo()==false){
                     model.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});
                             
      }
@@ -125,15 +148,15 @@ public boolean inCelEditable(int f, int c) {
      
         
         
-    catch(NullPointerException e){
+    }catch(NullPointerException e){
     JOptionPane.showMessageDialog(null, "El item seleccionado es incorrecto.");
 
  
         
         
     }//GEN-LAST:event_jCSeleccionarActionPerformed
+    
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jCSeleccionar;
     private javax.swing.JLabel jLabel1;
@@ -153,16 +176,7 @@ private void armarCabecera() {
 
     }
 }
-   /* private void borrarFila() {
-
-        int f = jTablaPrecio.getRowCount() - 1;
-        for (; f >= 0; f--) {
-
-            model.removeRow(f);
-
-        }
-    }*/
-
+ 
 
 
 

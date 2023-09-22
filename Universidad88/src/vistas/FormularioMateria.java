@@ -1,7 +1,6 @@
 package vistas;
 
 import entidades.Materia;
-import java.util.List;
 import javax.swing.JOptionPane;
 import persistencia.MateriaData;
 
@@ -214,10 +213,10 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         try {
             if (jTId.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "El campo Id no puede estar vacío");
-            } else if (jTId.getText().startsWith("")) {
+            } /*else if (jTId.getText().toString()){
                 JOptionPane.showMessageDialog(null, "El campo Id admite solo números enteros positivos");
 
-            } else if (Integer.parseInt(jTId.getText()) <= 0) {
+            }*/ else if (Integer.parseInt(jTId.getText()) <= 0) {
                 JOptionPane.showMessageDialog(null, "Formato de ID incorrecto");
 
             } else if (!jTNombre.getText().isEmpty()) {
@@ -229,18 +228,18 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             } else if (CActivo2.isSelected()) {
                 JOptionPane.showMessageDialog(null, "El campo Activo no debe estar seleccionado.");
             } else {
-
-                Materia mat = materia.buscarMateria(Integer.parseInt(jTId.getText()));
-                jTNombre.setText(mat.getNombre());
-                Integer.parseInt(jTAnio.setText(((int) mat.getAnio())));
-                CActivo2.setSelected(mat.isActivo());
-
+              
+                    Materia mat = materia.buscarMateria(Integer.parseInt(jTId.getText()));
+         
+                
+                        
             }
-
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con el Id solicitado.");
-        }
+        }catch(NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Error - caracter invalido");
         
+        }
+          
+
     }//GEN-LAST:event_BBuscarActionPerformed
 
     private void BSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSalirActionPerformed
@@ -259,8 +258,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void BEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEliminarActionPerformed
 
-        List<Materia> listaMaterias = materia.listarMaterias();
-
+        // List<Materia> listaMaterias = materia.listarMaterias();
 
     }//GEN-LAST:event_BEliminarActionPerformed
 
