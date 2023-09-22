@@ -29,11 +29,10 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         Modificar = new javax.swing.JButton();
         opciones = new javax.swing.JComboBox<>();
         buscar = new javax.swing.JButton();
-        baja = new javax.swing.JButton();
+        bajaAlta = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setClosable(true);
-        setMaximizable(true);
         setTitle("                                                         Busqueda de Alumnos");
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(510, 330));
@@ -73,11 +72,11 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
             }
         });
 
-        opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Opciones -", "Por ID", "Por DNI", "Todos" }));
+        opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Seleccionar >", "Por ID", "Por DNI", "Todos" }));
 
         buscar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         buscar.setForeground(new java.awt.Color(0, 0, 0));
-        buscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\sabri\\Documents\\GitHub\\Imagenes proyecto\\Imagenes proyecto\\buscar.png")); // NOI18N
+        buscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\buscar.png")); // NOI18N
         buscar.setText("Buscar");
         buscar.setBorder(null);
         buscar.setBorderPainted(false);
@@ -87,14 +86,25 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
             }
         });
 
-        baja.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        baja.setForeground(new java.awt.Color(0, 0, 0));
-        baja.setText("Baja/Alta");
-        baja.setBorder(null);
-        baja.setBorderPainted(false);
-        baja.addActionListener(new java.awt.event.ActionListener() {
+        bajaAlta.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        bajaAlta.setForeground(new java.awt.Color(0, 0, 0));
+        bajaAlta.setText("Baja/Alta");
+        bajaAlta.setBorder(null);
+        bajaAlta.setBorderPainted(false);
+        bajaAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bajaActionPerformed(evt);
+                bajaAltaActionPerformed(evt);
+            }
+        });
+
+        salir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        salir.setForeground(new java.awt.Color(0, 0, 0));
+        salir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\cerrar-sesion.png")); // NOI18N
+        salir.setBorder(null);
+        salir.setBorderPainted(false);
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
             }
         });
 
@@ -112,11 +122,13 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                         .addComponent(jtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                         .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
                         .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(baja, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -129,12 +141,15 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                     .addComponent(jtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(baja, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(bajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
+
+        opciones.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -247,7 +262,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_buscarActionPerformed
 
-    private void bajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaActionPerformed
+    private void bajaAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajaAltaActionPerformed
 
         if (tablaAlumnos.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un alumno para continuar");
@@ -282,16 +297,21 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         }
 
         
-    }//GEN-LAST:event_bajaActionPerformed
+    }//GEN-LAST:event_bajaAltaActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+           this.dispose();
+    }//GEN-LAST:event_salirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Modificar;
-    private javax.swing.JButton baja;
+    private javax.swing.JButton bajaAlta;
     private javax.swing.JButton buscar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jtidentificador;
     private javax.swing.JComboBox<String> opciones;
+    private javax.swing.JButton salir;
     private javax.swing.JTable tablaAlumnos;
     // End of variables declaration//GEN-END:variables
 }

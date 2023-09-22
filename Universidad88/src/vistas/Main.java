@@ -1,6 +1,5 @@
 package vistas;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
