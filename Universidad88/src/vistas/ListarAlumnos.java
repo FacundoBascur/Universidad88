@@ -76,7 +76,6 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
 
         buscar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         buscar.setForeground(new java.awt.Color(0, 0, 0));
-        buscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\buscar.png")); // NOI18N
         buscar.setText("Buscar");
         buscar.setBorder(null);
         buscar.setBorderPainted(false);
@@ -99,7 +98,6 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
 
         salir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         salir.setForeground(new java.awt.Color(0, 0, 0));
-        salir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\cerrar-sesion.png")); // NOI18N
         salir.setBorder(null);
         salir.setBorderPainted(false);
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -142,10 +140,11 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(salir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 

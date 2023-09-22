@@ -1,15 +1,14 @@
-
 package vistas;
 
 import entidades.Materia;
+import java.util.List;
 import javax.swing.JOptionPane;
 import persistencia.MateriaData;
 
-
 public class FormularioMateria extends javax.swing.JInternalFrame {
 
-    MateriaData materia=new MateriaData();
-    
+    MateriaData materia = new MateriaData();
+
     public FormularioMateria() {
         initComponents();
     }
@@ -212,7 +211,36 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBuscarActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (jTId.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El campo Id no puede estar vacío");
+            } else if (jTId.getText().startsWith("")) {
+                JOptionPane.showMessageDialog(null, "El campo Id admite solo números enteros positivos");
+
+            } else if (Integer.parseInt(jTId.getText()) <= 0) {
+                JOptionPane.showMessageDialog(null, "Formato de ID incorrecto");
+
+            } else if (!jTNombre.getText().isEmpty()) {
+
+                JOptionPane.showMessageDialog(null, "El campo Nombre debe estar vacío.");
+
+            } else if (!jTAnio.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El campo Año debe estar vacío.");
+            } else if (CActivo2.isSelected()) {
+                JOptionPane.showMessageDialog(null, "El campo Activo no debe estar seleccionado.");
+            } else {
+
+                Materia mat = materia.buscarMateria(Integer.parseInt(jTId.getText()));
+                jTNombre.setText(mat.getNombre());
+                Integer.parseInt(jTAnio.setText(((int) mat.getAnio())));
+                CActivo2.setSelected(mat.isActivo());
+
+            }
+
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con el Id solicitado.");
+        }
+        
     }//GEN-LAST:event_BBuscarActionPerformed
 
     private void BSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSalirActionPerformed
@@ -220,55 +248,51 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BSalirActionPerformed
 
     private void BNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BNuevoActionPerformed
-   if(jTId!=null && jTNombre!=null && jTAnio!=null && CActivo2!=null){
-  
-       jTId.setText("");
-       jTNombre.setText("");
-       jTAnio.setText("");
-       CActivo2.setSelected(false);
-   }
+        if (jTId != null && jTNombre != null && jTAnio != null && CActivo2 != null) {
+
+            jTId.setText("");
+            jTNombre.setText("");
+            jTAnio.setText("");
+            CActivo2.setSelected(false);
+        }
     }//GEN-LAST:event_BNuevoActionPerformed
 
     private void BEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEliminarActionPerformed
-       
-        if(jTId!=null && jTNombre!=null && jTAnio!=null && CActivo2!=null){
-           CActivo2.setSelected(false);
-       
-     }
+
+        List<Materia> listaMaterias = materia.listarMaterias();
+
+
     }//GEN-LAST:event_BEliminarActionPerformed
 
     private void BGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGuardarActionPerformed
-    
-       try{
-       if(!jTId.getText().isEmpty()){
-       JOptionPane.showMessageDialog(null, "El campo Id debe estar vacío.");
-       }else if(jTNombre.getText().isEmpty()){
-           JOptionPane.showMessageDialog(null, "El campo Nombre no puede estar vacío.");
-       }else if (jTAnio.getText().isEmpty()){
-           JOptionPane.showMessageDialog(null, "El campo Año no puede estar vacío.");
-       }/*else if(Integer.parseInt(jTNombre.getText())==1){
+
+        try {
+            if (!jTId.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El campo Id debe estar vacío.");
+            } else if (jTNombre.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El campo Nombre no puede estar vacío.");
+            } else if (jTAnio.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El campo Año no puede estar vacío.");
+            }/*else if(Integer.parseInt(jTNombre.getText())==1){
        JOptionPane.showMessageDialog(null, "El campo Nombre no puede ser numérico.");
        }else if(jTAnio.getText()==""){
        JOptionPane.showMessageDialog(null, "El campo Año debe ser numérico.");
-       }*/else if(jTAnio.getText().length()>1 ){
-           JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
-       }else{
-       
-       materia.guardarMateria(new Materia(jTNombre.getText(), Integer.parseInt(jTAnio.getText()), CActivo2.isSelected()));
-       
-       
-       
-        jTId.setText("");
-       jTNombre.setText("");
-       jTAnio.setText("");
-       CActivo2.setSelected(false);
-       
-       
-       }
-       }catch(NumberFormatException | IndexOutOfBoundsException |NullPointerException  p){
-         JOptionPane.showMessageDialog(null, "Error al registrar, campos en formato incorrecto.");
-       }
-       
+       }*/ else if (jTAnio.getText().length() > 1) {
+                JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
+            } else {
+
+                materia.guardarMateria(new Materia(jTNombre.getText(), Integer.parseInt(jTAnio.getText()), CActivo2.isSelected()));
+
+                jTId.setText("");
+                jTNombre.setText("");
+                jTAnio.setText("");
+                CActivo2.setSelected(false);
+
+            }
+        } catch (NumberFormatException | IndexOutOfBoundsException | NullPointerException p) {
+            JOptionPane.showMessageDialog(null, "Error al registrar, campos en formato incorrecto.");
+        }
+
     }//GEN-LAST:event_BGuardarActionPerformed
 
 
