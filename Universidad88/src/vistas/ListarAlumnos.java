@@ -77,7 +77,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
 
         buscar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         buscar.setForeground(new java.awt.Color(0, 0, 0));
-        buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        buscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\sabri\\Documents\\GitHub\\Imagenes proyecto\\Imagenes proyecto\\buscar.png")); // NOI18N
         buscar.setText("Buscar");
         buscar.setBorder(null);
         buscar.setBorderPainted(false);

@@ -98,8 +98,7 @@ public class MateriaData {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al intentar ingresara la"
-                    + "tabla materia");
+            JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con ese id");
         }
 
     }
@@ -117,15 +116,14 @@ public class MateriaData {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al intentar ingresar a la"
-                    + "tabla materia");
+            JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con ese id");
         }
     }
 
     public List<Materia> listarMaterias() {
         Materia materia=null;
         String sql = "SELECT * FROM materia";
-        ArrayList<Materia> listaMaterias = new ArrayList<>();
+       List<Materia> listaMaterias = new ArrayList<>();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -152,5 +150,34 @@ public class MateriaData {
         return listaMaterias;
 
     }
+ public List<Materia> listarMateriasPorEstado(boolean estado) {
+        Materia materia=null;
+        String sql = "SELECT * FROM materia WHERE estado = ?";
+        List<Materia> listaMateriasPorEstado = new ArrayList<>();
 
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
+
+            while (rs.next()) {
+
+                materia = new Materia();
+                materia.setIdMateria(rs.getInt("id Materia"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnio(rs.getInt("anio"));
+                materia.setActivo(rs.getBoolean("estado"));
+
+                listaMateriasPorEstado.add(materia);
+
+                ps.close();
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos");
+        }
+
+        return listaMateriasPorEstado;
+
+    }
 }

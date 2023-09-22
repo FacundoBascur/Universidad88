@@ -1,6 +1,9 @@
 
 package vistas;
 
+import entidades.Materia;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import persistencia.MateriaData;
 
@@ -105,15 +108,31 @@ public boolean inCelEditable(int f, int c) {
     private void jCSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCSeleccionarActionPerformed
     
      String opciones=jCSeleccionar.getSelectedItem().toString();
+    try{ 
+     if(opciones.equals("<Seleccionar>")){
+     JOptionPane.showMessageDialog(null, "Debe seleccionar una de las opciones.");
+     }else if(opciones.equals("Todas")){
      
-     if(opciones.equals("")){}
+       model.setRowCount(0);
+             
+
+                for(Materia mat: materia.listarMaterias()){
+                    model.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});
+                            
+     }
+     }
+     }
+     
         
         
-        
+    catch(NullPointerException e){
+    JOptionPane.showMessageDialog(null, "El item seleccionado es incorrecto.");
+
+ 
         
         
     }//GEN-LAST:event_jCSeleccionarActionPerformed
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jCSeleccionar;
@@ -133,7 +152,7 @@ private void armarCabecera() {
       
 
     }
-
+}
    /* private void borrarFila() {
 
         int f = jTablaPrecio.getRowCount() - 1;
@@ -148,4 +167,4 @@ private void armarCabecera() {
 
 
 
-}
+
