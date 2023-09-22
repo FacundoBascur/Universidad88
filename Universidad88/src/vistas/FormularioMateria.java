@@ -6,7 +6,8 @@ import persistencia.MateriaData;
 
 public class FormularioMateria extends javax.swing.JInternalFrame {
 
-    MateriaData materia = new MateriaData();
+   private MateriaData materia = new MateriaData();
+   private Materia mat=null;
 
     public FormularioMateria() {
         initComponents();
@@ -213,11 +214,11 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         try {
             if (jTId.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "El campo Id no puede estar vacío");
-            } /*else if (jTId.getText().toString()){
+           } else if (jTId.getText()==""){
                 JOptionPane.showMessageDialog(null, "El campo Id admite solo números enteros positivos");
-
-            }*/ else if (Integer.parseInt(jTId.getText()) <= 0) {
-                JOptionPane.showMessageDialog(null, "Formato de ID incorrecto");
+            //VER PQ NO EJECUTA LA LINEA 218?
+            } else if (Integer.parseInt(jTId.getText()) <= 0) {
+                JOptionPane.showMessageDialog(null, "El Id debe ser un número positivo mayor a 0.");
 
             } else if (!jTNombre.getText().isEmpty()) {
 
@@ -228,10 +229,12 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             } else if (CActivo2.isSelected()) {
                 JOptionPane.showMessageDialog(null, "El campo Activo no debe estar seleccionado.");
             } else {
-              
-                    Materia mat = materia.buscarMateria(Integer.parseInt(jTId.getText()));
+              Integer id=Integer.parseInt(jTId.getText());
+                    mat =materia.buscarMateria(id);
          
-                
+                jTNombre.setText(mat.getNombre());
+                jTAnio.setText(mat.getAnio()+"");
+                CActivo2.setSelected(mat.isActivo());
                         
             }
         }catch(NumberFormatException e) {

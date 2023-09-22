@@ -48,34 +48,31 @@ public class MateriaData {
 
     }
 
-    public Materia buscarMateria(int id) {
+    public Materia buscarMateria(Integer id) {
 
-        String sql = "SELECT nombre, anio, estado FROM Materia WHERE idMateria=?";
+        String sql = "SELECT nombre, anio, estado FROM materia WHERE idMateria=?";
 
         Materia materia = null;
 
-        try {
+        try{
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-
                 materia = new Materia();
-                materia.setIdMateria(id);
+               materia.setIdMateria(id);
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("anio"));
                 materia.setActivo(rs.getBoolean("estado"));
 
             } else {
+                JOptionPane.showMessageDialog(null, "No existe ninguna materia con el Id ingresado.");
 
-                JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con ese id");
             }
-
             ps.close();
-
         } catch (SQLException ex) {
-         JOptionPane.showMessageDialog(null, "Error de conexión con la base de datos.");
+            JOptionPane.showMessageDialog(null, "Error de conexión con la base de datos.");
         }
         return materia;
     }
@@ -121,19 +118,19 @@ public class MateriaData {
     }
 
     public List<Materia> listarMaterias() {
-       Materia materia=null;
-      
-       List<Materia> listaMaterias = new ArrayList<>();
-  
+        Materia materia = null;
+
+        List<Materia> listaMaterias = new ArrayList<>();
+
         try {
             String sql = "SELECT * FROM materia";
             PreparedStatement ps = con.prepareStatement(sql);
-          
+
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
 
-              materia = new Materia();
+                materia = new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("anio"));
@@ -152,45 +149,14 @@ public class MateriaData {
         return listaMaterias;
 
     }
-/* public List<Materia> listarMateriasActivas() {
-        Materia materia=null;
-       
-        List<Materia> listaMateriasPorEstado = new ArrayList<>();
-        String sql = "SELECT * FROM materia WHERE estado = 1";
-        try {
-           
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setBoolean(1, true);
-            ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
+    public List<Materia> listarMateriasPorEstado(boolean estado) {
+        Materia materia = null;
 
-                materia = new Materia();
-                materia.setIdMateria(rs.getInt("id Materia"));
-                materia.setNombre(rs.getString("nombre"));
-                materia.setAnio(rs.getInt("anio"));
-                materia.setActivo(rs.getBoolean("estado"));
-
-                listaMateriasPorEstado.add(materia);
-
-                ps.close();
-
-            }
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos");
-        }
-
-        return listaMateriasPorEstado;
-
-    }*/
- public List<Materia> listarMateriasPorEstado(boolean estado) {
-        Materia materia=null;
-       
         List<Materia> listaMateriasPorEstado = new ArrayList<>();
         String sql = "SELECT * FROM materia WHERE estado = ?";
         try {
-           
+
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setBoolean(1, estado);
             ResultSet rs = ps.executeQuery();
