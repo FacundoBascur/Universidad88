@@ -6,7 +6,7 @@ import persistencia.MateriaData;
 
 public class FormularioMateria extends javax.swing.JInternalFrame {
 
-   private MateriaData materia = new MateriaData();
+  private MateriaData materia = new MateriaData();
    private Materia mat=null;
 
     public FormularioMateria() {
@@ -266,7 +266,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BEliminarActionPerformed
 
     private void BGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGuardarActionPerformed
-
+if(jTId.getText().isEmpty()){
         try {
             if (!jTId.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "El campo Id debe estar vacío.");
@@ -295,8 +295,48 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_BGuardarActionPerformed
+else{ materia.modificarMateria(Integer.parseInt(jTId.getText()));
+try{
+    if(mat.getNombre()==jTNombre.getText()){
+    }else if(mat.getNombre()!=jTNombre.getText()){
+    mat.setNombre(jTNombre.getText());
+    JOptionPane.showMessageDialog(null, "Nombre de la materia modificado exitosamente.");
+    }
+    if(mat.getAnio()==Integer.parseInt(jTAnio.getText())){
+    }else if(mat.getAnio()!=Integer.parseInt(jTAnio.getText()) && jTAnio.getText().length()>1){
+    JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
+    }else{
+        mat.setAnio(Integer.parseInt(jTAnio.getText()));
+      JOptionPane.showMessageDialog(null, "Año de la materia modificado exitosamente.");
+    }
+    if(mat.isActivo()==CActivo2.isSelected()){
+    }else{
+    mat.setActivo(CActivo2.isSelected());
+    if(mat.isActivo()==true){
+    JOptionPane.showMessageDialog(null, "La materia cambio a estado activo.");
+    }else{
+    JOptionPane.showMessageDialog(null, "La materia cambio a estado inactivo");
+    }
+    }
+}catch(NullPointerException n){
+    JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos.");
+
+}
+
+ jTId.setText("");
+            jTNombre.setText("");
+            jTAnio.setText("");
+            CActivo2.setSelected(false);
 
 
+
+
+
+
+
+
+}
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button BBuscar;
     private java.awt.Button BEliminar;
