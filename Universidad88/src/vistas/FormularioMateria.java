@@ -6,8 +6,8 @@ import persistencia.MateriaData;
 
 public class FormularioMateria extends javax.swing.JInternalFrame {
 
-  private MateriaData materia = new MateriaData();
-   private Materia mat=null;
+    private MateriaData materia = new MateriaData();
+    private Materia mat = null;
 
     public FormularioMateria() {
         initComponents();
@@ -23,7 +23,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jTId = new javax.swing.JTextField();
         jTAnio = new javax.swing.JTextField();
         BBuscar = new java.awt.Button();
-        BEliminar = new java.awt.Button();
+        BBajaAlta = new java.awt.Button();
         BNuevo = new java.awt.Button();
         BGuardar = new java.awt.Button();
         BSalir = new java.awt.Button();
@@ -58,13 +58,13 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             }
         });
 
-        BEliminar.setBackground(new java.awt.Color(153, 153, 153));
-        BEliminar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        BEliminar.setForeground(new java.awt.Color(51, 51, 51));
-        BEliminar.setLabel("Eliminar");
-        BEliminar.addActionListener(new java.awt.event.ActionListener() {
+        BBajaAlta.setBackground(new java.awt.Color(153, 153, 153));
+        BBajaAlta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        BBajaAlta.setForeground(new java.awt.Color(51, 51, 51));
+        BBajaAlta.setLabel("Baja/Alta");
+        BBajaAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BEliminarActionPerformed(evt);
+                BBajaAltaActionPerformed(evt);
             }
         });
 
@@ -151,7 +151,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                                 .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel1)
                             .addComponent(CActivo2)))
-                    .addComponent(BEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BBajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(BSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
@@ -188,7 +188,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BBajaAlta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BNuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
@@ -214,9 +214,9 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         try {
             if (jTId.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "El campo Id no puede estar vacío");
-           } else if (jTId.getText()==""){
+            } else if (jTId.getText() == "") {
                 JOptionPane.showMessageDialog(null, "El campo Id admite solo números enteros positivos");
-            //VER PQ NO EJECUTA LA LINEA 218?
+                //VER PQ NO EJECUTA LA LINEA 218?
             } else if (Integer.parseInt(jTId.getText()) <= 0) {
                 JOptionPane.showMessageDialog(null, "El Id debe ser un número positivo mayor a 0.");
 
@@ -229,20 +229,20 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             } else if (CActivo2.isSelected()) {
                 JOptionPane.showMessageDialog(null, "El campo Activo no debe estar seleccionado.");
             } else {
-              Integer id=Integer.parseInt(jTId.getText());
-                    mat =materia.buscarMateria(id);
-         
-                jTNombre.setText(mat.getNombre());
-                jTAnio.setText(mat.getAnio()+"");
-                CActivo2.setSelected(mat.isActivo());
-                        
-            }
-        }catch(NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Error - caracter invalido");
-        
-        }
-          
+                Integer id = Integer.parseInt(jTId.getText());
+                mat = materia.buscarMateria(id);
 
+                jTNombre.setText(mat.getNombre());
+                jTAnio.setText(mat.getAnio() + "");
+                CActivo2.setSelected(mat.isActivo());
+
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error - caracter invalido");
+
+        }
+
+        Materia mat = null;
     }//GEN-LAST:event_BBuscarActionPerformed
 
     private void BSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSalirActionPerformed
@@ -259,87 +259,104 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_BNuevoActionPerformed
 
-    private void BEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEliminarActionPerformed
+    private void BBajaAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBajaAltaActionPerformed
+      
+           if(jTId.getText().isEmpty() || jTNombre.getText().isEmpty() || jTAnio.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "No puede haber campos de texto vacíos.");
+           }else{
+                if (CActivo2.isSelected() == true) {
 
-        // List<Materia> listaMaterias = materia.listarMaterias();
+                    materia.bajaMateria(Integer.parseInt(jTId.getText()));
+                 
+                } else {
 
-    }//GEN-LAST:event_BEliminarActionPerformed
-
+                    materia.altaMateria(Integer.parseInt(jTId.getText()));
+                    
+                }
+                       }
+           jTId.setText("");
+                    jTNombre.setText("");
+                    jTAnio.setText("");
+                    CActivo2.setSelected(false);
+    }//GEN-LAST:event_BBajaAltaActionPerformed
+   
+      
+    
+    
+    
     private void BGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGuardarActionPerformed
-if(jTId.getText().isEmpty()){
-        try {
-            if (!jTId.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "El campo Id debe estar vacío.");
-            } else if (jTNombre.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "El campo Nombre no puede estar vacío.");
-            } else if (jTAnio.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "El campo Año no puede estar vacío.");
-            }/*else if(Integer.parseInt(jTNombre.getText())==1){
+        if (jTId.getText().isEmpty() == true) {
+            try {
+                if (!jTId.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El campo Id debe estar vacío.");
+                } else if (jTNombre.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El campo Nombre no puede estar vacío.");
+                } else if (jTAnio.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El campo Año no puede estar vacío.");
+                }/*else if(Integer.parseInt(jTNombre.getText())==1){
        JOptionPane.showMessageDialog(null, "El campo Nombre no puede ser numérico.");
        }else if(jTAnio.getText()==""){
        JOptionPane.showMessageDialog(null, "El campo Año debe ser numérico.");
        }*/ else if (jTAnio.getText().length() > 1) {
-                JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
-            } else {
+                    JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
+                } else {
 
-                materia.guardarMateria(new Materia(jTNombre.getText(), Integer.parseInt(jTAnio.getText()), CActivo2.isSelected()));
+                    materia.guardarMateria(new Materia(jTNombre.getText(), Integer.parseInt(jTAnio.getText()), CActivo2.isSelected()));
 
-                jTId.setText("");
-                jTNombre.setText("");
-                jTAnio.setText("");
-                CActivo2.setSelected(false);
+                    jTId.setText("");
+                    jTNombre.setText("");
+                    jTAnio.setText("");
+                    CActivo2.setSelected(false);
 
+                }
+            } catch (NumberFormatException | IndexOutOfBoundsException | NullPointerException p) {
+                JOptionPane.showMessageDialog(null, "Error al registrar, campos en formato incorrecto.");
             }
-        } catch (NumberFormatException | IndexOutOfBoundsException | NullPointerException p) {
-            JOptionPane.showMessageDialog(null, "Error al registrar, campos en formato incorrecto.");
-        }
 
     }//GEN-LAST:event_BGuardarActionPerformed
-else{ materia.modificarMateria(Integer.parseInt(jTId.getText()));
-try{
-    if(mat.getNombre()==jTNombre.getText()){
-    }else if(mat.getNombre()!=jTNombre.getText()){
-    mat.setNombre(jTNombre.getText());
-    JOptionPane.showMessageDialog(null, "Nombre de la materia modificado exitosamente.");
-    }
-    if(mat.getAnio()==Integer.parseInt(jTAnio.getText())){
-    }else if(mat.getAnio()!=Integer.parseInt(jTAnio.getText()) && jTAnio.getText().length()>1){
-    JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
-    }else{
-        mat.setAnio(Integer.parseInt(jTAnio.getText()));
-      JOptionPane.showMessageDialog(null, "Año de la materia modificado exitosamente.");
-    }
-    if(mat.isActivo()==CActivo2.isSelected()){
-    }else{
-    mat.setActivo(CActivo2.isSelected());
-    if(mat.isActivo()==true){
-    JOptionPane.showMessageDialog(null, "La materia cambio a estado activo.");
-    }else{
-    JOptionPane.showMessageDialog(null, "La materia cambio a estado inactivo");
-    }
-    }
-}catch(NullPointerException n){
-    JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos.");
+else {
+            int id = Integer.parseInt(jTId.getText());
+            String nombre = jTNombre.getText();
+            int anio = Integer.parseInt(jTAnio.getText());
+            boolean estado = CActivo2.isSelected();
+            try {
+                materia.buscarMateria(id);
+                if (mat.getNombre() == nombre) {
+                } else if (mat.getNombre() != nombre) {
+                    mat.setNombre(nombre);
+                    JOptionPane.showMessageDialog(null, "Nombre de la materia modificado exitosamente.");
+                }
+                if (mat.getAnio() == anio) {
+                } else if (mat.getAnio() != anio && jTAnio.getText().length() > 1) {
+                    JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
+                } else {
+                    mat.setAnio(anio);
+                    JOptionPane.showMessageDialog(null, "Año de la materia modificado exitosamente.");
+                }
+                if (mat.isActivo() == CActivo2.isSelected()) {
+                } else {
+                    mat.setActivo(estado);
+                    if (mat.isActivo() == true) {
+                        JOptionPane.showMessageDialog(null, "La materia cambio a estado activo.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "La materia cambio a estado inactivo");
+                    }
+                }
+            } catch (NullPointerException n) {
+                JOptionPane.showMessageDialog(null, "Error en formulario materia");
 
-}
-
- jTId.setText("");
+            }
+            Materia mat = null;
+            jTId.setText("");
             jTNombre.setText("");
             jTAnio.setText("");
             CActivo2.setSelected(false);
 
-
-
-
-
-
-
-
-}
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button BBajaAlta;
     private java.awt.Button BBuscar;
-    private java.awt.Button BEliminar;
     private java.awt.Button BGuardar;
     private java.awt.Button BNuevo;
     private java.awt.Button BSalir;
