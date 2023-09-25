@@ -349,7 +349,7 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         Alumno elegido = (Alumno)cboxAlumno.getSelectedItem();
         List<Materia>lista = inscData.averiguarMateriasInscriptas(elegido.getIdAlumno());
         for(Materia m : lista){
-            modelo.addRow(new Object [](m.getIdMateria(),m.getNombre(),m.getAnio()));
+            modelo.addRow(new Object []{m.getIdMateria(),m.getNombre(),m.getAnio()});
         }    
     }
     
@@ -358,7 +358,7 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         Alumno elegido = (Alumno)cboxAlumno.getSelectedItem();
         List <Materia> listaM = inscData.averiguarMateriasNoInscriptas(elegido.getIdAlumno());
         for(Materia m: listaM){
-            modelo.addRow(new Object[](m.getIdMateria(),m.getNombre(),m.getAnio()));
+            modelo.addRow(new Object[]{m.getIdMateria(),m.getNombre(),m.getAnio()});
         }
     }
 
