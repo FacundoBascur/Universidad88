@@ -13,7 +13,7 @@ import persistencia.MateriaData;
 
 public class FormularioInscripcion extends javax.swing.JFrame {
 
-    private List<Materia> ListaM;
+    private List<Materia> listaM;
     private List<Alumno> listaA;
 
     private InscripcionData inscData;
@@ -25,12 +25,15 @@ public class FormularioInscripcion extends javax.swing.JFrame {
     //cons
     public FormularioInscripcion() {
         initComponents();
-
-        alumData = new AlumnoData();
-        listaA = (ArrayList<Alumno>) alumData.listarAlumnos();
         modelo = new DefaultTableModel();
         inscData = new InscripcionData();
         mateData = new MateriaData();
+        armarTabla(); // armado de tabla
+        alumData = new AlumnoData();
+        listaM = (ArrayList<Materia>) mateData.listarMaterias();
+        listaA = (ArrayList<Alumno>) alumData.listarAlumnos();
+        cargarAlumnos(); // rellenar del combo box    
+        
         
         
 
@@ -155,6 +158,12 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jtMate);
 
+        cboxAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxAlumnoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -241,6 +250,7 @@ public class FormularioInscripcion extends javax.swing.JFrame {
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
         int filaElegida = jtMate.getSelectedRow();
         if(filaElegida !=-1){
+            
             Alumno alum = (Alumno) cboxAlumno.getSelectedItem();
             int idMate = (Integer) modelo.getValueAt(filaElegida, 0);
             String nombreMate = (String) modelo.getValueAt(filaElegida, 1);
@@ -265,6 +275,10 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jbAnularActionPerformed
+
+    private void cboxAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxAlumnoActionPerformed
 
     
     public static void main(String args[]) {
@@ -327,13 +341,15 @@ public class FormularioInscripcion extends javax.swing.JFrame {
     
     //para setear nombres columnas
     private void armarTabla (){
-        ArrayList <Object> filaTitulo = new ArrayList <>();
+        
+        ArrayList <String> filaTitulo = new ArrayList <>();
         filaTitulo.add("ID");
         filaTitulo.add("Nombre");
         filaTitulo.add("Año");
-        for(Object i: filaTitulo) {
+        for(String i: filaTitulo) {
             modelo.addColumn(i);
         }
+        
         jtMate.setModel(modelo);
     }
     
@@ -348,8 +364,9 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         
         Alumno elegido = (Alumno)cboxAlumno.getSelectedItem();
         List<Materia>lista = inscData.averiguarMateriasInscriptas(elegido.getIdAlumno());
+        
         for(Materia m : lista){
-            modelo.addRow(new Object [](m.getIdMateria(),m.getNombre(),m.getAnio()));
+            modelo.addRow(new Object []{m.getIdMateria(),m.getNombre(),m.getAnio()});
         }    
     }
     
@@ -358,7 +375,7 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         Alumno elegido = (Alumno)cboxAlumno.getSelectedItem();
         List <Materia> listaM = inscData.averiguarMateriasNoInscriptas(elegido.getIdAlumno());
         for(Materia m: listaM){
-            modelo.addRow(new Object[](m.getIdMateria(),m.getNombre(),m.getAnio()));
+            modelo.addRow(new Object[]{m.getIdMateria(),m.getNombre(),m.getAnio()});
         }
     }
 

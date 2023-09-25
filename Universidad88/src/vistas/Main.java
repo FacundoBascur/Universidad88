@@ -22,7 +22,7 @@ public class Main extends javax.swing.JFrame {
         jMFormularioMateria = new javax.swing.JMenuItem();
         jMListarMaterias = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        formularioInscripcion = new javax.swing.JMenuItem();
         maniNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         alumXmateria = new javax.swing.JMenuItem();
@@ -94,7 +94,6 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu4.add(jMFormularioMateria);
 
-        jMListarMaterias.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\seleccionar.png")); // NOI18N
         jMListarMaterias.setText("Listar Materias");
         jMListarMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,14 +106,14 @@ public class Main extends javax.swing.JFrame {
 
         jMenu5.setText("Administración");
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
-        jMenuItem3.setText("Manejo de inscripciones");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        formularioInscripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
+        formularioInscripcion.setText("Manejo de inscripciones");
+        formularioInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                formularioInscripcionActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem3);
+        jMenu5.add(formularioInscripcion);
 
         maniNotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
         maniNotas.setText("Manipulación de notas");
@@ -140,7 +139,6 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu6);
 
-        jMSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\apagar.png")); // NOI18N
         jMSalir.setText("Salir");
         jMSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -165,9 +163,15 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void formularioInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioInscripcionActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioInscripcion form = new FormularioInscripcion();
+        form.setVisible(true);
+        escritorio.add(form);
+        escritorio.moveToFront(form);
+        form.setLocation(228, 125);
+    }//GEN-LAST:event_formularioInscripcionActionPerformed
 
     private void busquedaModificiacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaModificiacionActionPerformed
         escritorio.removeAll();
@@ -263,6 +267,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem alumXmateria;
     private javax.swing.JMenuItem busquedaModificiacion;
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenuItem formularioInscripcion;
     private javax.swing.JMenuItem jMFormularioMateria;
     private javax.swing.JMenuItem jMListarMaterias;
     private javax.swing.JMenu jMSalir;
@@ -271,7 +276,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem maniNotas;
     private javax.swing.JMenuItem registroAlumnos;
