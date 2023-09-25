@@ -253,6 +253,10 @@ public class Main extends javax.swing.JFrame {
 
             }
         });
+    
+        //AlumnoData ad = AlumnoData();
+        
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
