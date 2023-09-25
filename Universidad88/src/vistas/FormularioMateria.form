@@ -66,26 +66,18 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTAnio" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jTId" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Component id="BBuscar" min="-2" pref="75" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="BGuardar" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTNombre" min="-2" pref="187" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="CActivo2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jTId" min="-2" pref="101" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="BBuscar" min="-2" pref="75" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="BBajaAlta" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTNombre" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="CActivo2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="BGuardar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTAnio" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="80" max="32767" attributes="0"/>
                   <Component id="BSalir" min="-2" max="-2" attributes="0"/>
@@ -133,7 +125,6 @@
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="BGuardar" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="BBajaAlta" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="BNuevo" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="BSalir" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -193,23 +184,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BBuscarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="java.awt.Button" name="BBajaAlta">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="99" red="99" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="label" type="java.lang.String" value="Baja/Alta"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BBajaAltaActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="java.awt.Button" name="BNuevo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -238,8 +212,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="label" type="java.lang.String" value="Guardar"/>
+            <Property name="label" type="java.lang.String" value="Guardar / Modificar"/>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Guardar / Modificar"/>
+          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BGuardarActionPerformed"/>
           </Events>

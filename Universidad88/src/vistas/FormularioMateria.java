@@ -23,7 +23,6 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jTId = new javax.swing.JTextField();
         jTAnio = new javax.swing.JTextField();
         BBuscar = new java.awt.Button();
-        BBajaAlta = new java.awt.Button();
         BNuevo = new java.awt.Button();
         BGuardar = new java.awt.Button();
         BSalir = new java.awt.Button();
@@ -58,16 +57,6 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             }
         });
 
-        BBajaAlta.setBackground(new java.awt.Color(153, 153, 153));
-        BBajaAlta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        BBajaAlta.setForeground(new java.awt.Color(51, 51, 51));
-        BBajaAlta.setLabel("Baja/Alta");
-        BBajaAlta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BBajaAltaActionPerformed(evt);
-            }
-        });
-
         BNuevo.setBackground(new java.awt.Color(153, 153, 153));
         BNuevo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BNuevo.setForeground(new java.awt.Color(51, 51, 51));
@@ -81,7 +70,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         BGuardar.setBackground(new java.awt.Color(153, 153, 153));
         BGuardar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BGuardar.setForeground(new java.awt.Color(51, 51, 51));
-        BGuardar.setLabel("Guardar");
+        BGuardar.setLabel("Guardar / Modificar");
         BGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BGuardarActionPerformed(evt);
@@ -136,22 +125,17 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4))))
-                .addGap(19, 19, 19)
+                .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTId, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addComponent(BBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(BGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1)
-                            .addComponent(CActivo2)))
-                    .addComponent(BBajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTId, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(BBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(CActivo2)
+                    .addComponent(BGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(BSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
@@ -188,11 +172,12 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BGuardar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BBajaAlta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BNuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
         );
+
+        BGuardar.getAccessibleContext().setAccessibleName("Guardar / Modificar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -259,31 +244,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_BNuevoActionPerformed
 
-    private void BBajaAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBajaAltaActionPerformed
-      
-           if(jTId.getText().isEmpty() || jTNombre.getText().isEmpty() || jTAnio.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "No puede haber campos de texto vacíos.");
-           }else{
-                if (CActivo2.isSelected() == true) {
 
-                    materia.bajaMateria(Integer.parseInt(jTId.getText()));
-                 
-                } else {
-
-                    materia.altaMateria(Integer.parseInt(jTId.getText()));
-                    
-                }
-                       }
-           jTId.setText("");
-                    jTNombre.setText("");
-                    jTAnio.setText("");
-                    CActivo2.setSelected(false);
-    }//GEN-LAST:event_BBajaAltaActionPerformed
-   
-      
-    
-    
-    
     private void BGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGuardarActionPerformed
         if (jTId.getText().isEmpty() == true) {
             try {
@@ -315,12 +276,20 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_BGuardarActionPerformed
 else {
-            int id = Integer.parseInt(jTId.getText());
-            String nombre = jTNombre.getText();
-            int anio = Integer.parseInt(jTAnio.getText());
-            boolean estado = CActivo2.isSelected();
-            try {
-                materia.buscarMateria(id);
+            if (jTNombre.getText().isEmpty() || jTAnio.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No puede haber campos de texto vacíos.");
+            }else{
+          int id=Integer.parseInt(jTId.getText());
+          String nombre=jTNombre.getText();
+          int anio=Integer.parseInt(jTAnio.getText());
+          boolean estado=CActivo2.isSelected();
+        
+          materia.modificarMateria(id, nombre, anio, estado);
+                        
+            
+
+            /*    try {
+               
                 if (mat.getNombre() == nombre) {
                 } else if (mat.getNombre() != nombre) {
                     mat.setNombre(nombre);
@@ -343,19 +312,17 @@ else {
                     }
                 }
             } catch (NullPointerException n) {
-                JOptionPane.showMessageDialog(null, "Error en formulario materia");
-
+                JOptionPane.showMessageDialog(null, "Error en formulario materia");*/
             }
-            Materia mat = null;
+        }
             jTId.setText("");
             jTNombre.setText("");
             jTAnio.setText("");
             CActivo2.setSelected(false);
-
-        }
+        
+    
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button BBajaAlta;
     private java.awt.Button BBuscar;
     private java.awt.Button BGuardar;
     private java.awt.Button BNuevo;

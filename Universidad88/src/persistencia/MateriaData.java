@@ -77,42 +77,39 @@ public class MateriaData {
         return materia;
     }
 
-   /* public Materia modificarMateria(Materia mat) {
-
-        String sql = "UPDATE materia SET nombre=?, anio=?, estado=? "
-                + "WHERE idMateria=?";
+    public void modificarMateria(int id, String nombre, int anio, boolean estado) {
+   
+        String sql = "UPDATE materia SET nombre=?, anio=?, estado=? WHERE idMateria=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(4, mat.getIdMateria());
+            ps.setInt(4, id);
+            ps.setString(1, nombre);
+            ps.setInt(2, anio);
+            ps.setBoolean(3, estado);
 
-           ResultSet rs=ps.executeQuery();
-            if (rs.next()) {
-                mat=new Materia();
-               mat.setIdMateria(mat.getIdMateria());
-                mat.setNombre(rs.getString("nombre"));
-                mat.setAnio(rs.getInt("anio"));
-                mat.setActivo(rs.getBoolean("estado"));
-
+     int resul=ps.executeUpdate();
+     if(resul==1){
+             
+          JOptionPane.showMessageDialog(null, "Materia modificada exitosamente.");
             }
             ps.close();
-        }catch(NullPointerException n){
-         JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con ese id");
-        }
-        catch (SQLException ex) {
+        } catch (NullPointerException n) {
+            JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con ese id");
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos.");
-        }
-return mat;
-    }*/
-
-    public void bajaMateria(Integer id) {
+                }
+   //return mat;
+    
+    }
+ /*   public void bajaMateria(Integer id) {
 
         String sql = "UPDATE materia SET estado=0 WHERE idMateria=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-          
+
             int exito = ps.executeUpdate();
             if (exito == 1) {
 
@@ -123,14 +120,15 @@ return mat;
             JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con ese Id.");
         }
     }
- public void altaMateria(Integer id) {
+
+    public void altaMateria(Integer id) {
 
         String sql = "UPDATE materia SET estado=1 WHERE idMateria=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
-           
+
             int exito = ps.executeUpdate();
             if (exito == 1) {
 
@@ -141,6 +139,7 @@ return mat;
             JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con ese Id");
         }
     }
+*/
     public List<Materia> listarMaterias() {
         Materia materia = null;
 
