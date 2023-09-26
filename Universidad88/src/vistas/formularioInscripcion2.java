@@ -70,12 +70,6 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
             }
         });
 
-        cboxAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxAlumnoActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Seleccione un alumno/a:");
 
         jtMate.setModel(new javax.swing.table.DefaultTableModel(
@@ -109,6 +103,11 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
         jLabel3.setText("Listado de Materias");
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         escritorio2.setLayer(radioNoInscriptas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -246,9 +245,9 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
 
     
     
-    private void cboxAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxAlumnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cboxAlumnoActionPerformed
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
 
 
     
@@ -267,19 +266,47 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton radioNoInscriptas;
     // End of variables declaration//GEN-END:variables
 
+     //para ir agregando al cBox
     private void cargarAlumnos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for(Alumno item: listaA){
+            cboxAlumno.addItem(item);
+        }
     }
 
     private void armarTabla() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList <String> filaTitulo = new ArrayList <>();
+        filaTitulo.add("ID");
+        filaTitulo.add("Nombre");
+        filaTitulo.add("Año");
+        for(String i: filaTitulo) {
+            modelo.addColumn(i);
+        }
+        
+        jtMate.setModel(modelo);
     }
 
     private void borrarFilasTabla() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         int indice = modelo.getRowCount()-1;
+        for (int i = indice; i>=0; i--){
+            modelo.removeRow(i);
+        } 
     }
 
     private void cargarInscriptas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         Alumno elegido = (Alumno)cboxAlumno.getSelectedItem();
+        List<Materia>lista = inscData.averiguarMateriasInscriptas(elegido.getIdAlumno());
+        
+        for(Materia m : lista){
+            modelo.addRow(new Object []{m.getIdMateria(),m.getNombre(),m.getAnio()});
+        } 
+    }
+    
+    private void cargarNoInscriptas(){
+        
+        Alumno elegido = (Alumno)cboxAlumno.getSelectedItem();
+        List <Materia> listaM = inscData.averiguarMateriasNoInscriptas(elegido.getIdAlumno());
+        for(Materia m: listaM){
+            modelo.addRow(new Object[]{m.getIdMateria(),m.getNombre(),m.getAnio()});
+        }
     }
 }

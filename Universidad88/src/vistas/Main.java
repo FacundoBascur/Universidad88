@@ -239,7 +239,7 @@ public class Main extends javax.swing.JFrame {
     private void formularioInscripcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioInscripcion2ActionPerformed
       escritorio.removeAll();
       escritorio.repaint();
-      formularioInscripcion2 form=new formularioIncripcion2();
+      formularioInscripcion2 form = new formularioInscripcion2();
       form.setVisible(true);
       escritorio.add(form);
       escritorio.moveToFront(form);
