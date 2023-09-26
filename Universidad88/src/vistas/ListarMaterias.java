@@ -183,11 +183,7 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
             if (jTabla.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(null, "No se ha realizado ninguna modificación.");
 
-            } else if (jTabla.isColumnSelected(3)) {
-                JOptionPane.showMessageDialog(null, "El estado no puede modificarse con este comando.");
-
-                jCSeleccionar.setSelectedItem("<Seleccionar>");
-                model.setRowCount(0);
+            
             } else {
 
                 //En estas variables se guardan los datos obtenidos al seleccionar una fila de la tabla. "tabla.getValueAt(jTabla.getSelectedRow --> selecciona fila"
