@@ -41,24 +41,18 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        radioInscriptas = new javax.swing.JRadioButton();
+        escritorio2 = new javax.swing.JDesktopPane();
         radioNoInscriptas = new javax.swing.JRadioButton();
-        jbSalir = new javax.swing.JButton();
-        jbAnular = new javax.swing.JButton();
-        jbInscribir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        radioInscriptas = new javax.swing.JRadioButton();
+        cboxAlumno = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtMate = new javax.swing.JTable();
-        cboxAlumno = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jbAnular = new javax.swing.JButton();
+        jbInscribir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-
-        radioInscriptas.setText("Materias inscriptas");
-        radioInscriptas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioInscriptasActionPerformed(evt);
-            }
-        });
+        jbSalir = new javax.swing.JButton();
 
         radioNoInscriptas.setText("Materias no inscriptas");
         radioNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +61,35 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
             }
         });
 
-        jbSalir.setText("Salir");
+        jLabel1.setText("Formulario de Inscripción");
+
+        radioInscriptas.setText("Materias inscriptas");
+        radioInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioInscriptasActionPerformed(evt);
+            }
+        });
+
+        cboxAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxAlumnoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Seleccione un alumno/a:");
+
+        jtMate.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jtMate);
 
         jbAnular.setText("Anular inscripción");
         jbAnular.addActionListener(new java.awt.event.ActionListener() {
@@ -84,91 +106,93 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
             }
         });
 
-        jtMate.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jtMate);
-
-        cboxAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxAlumnoActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Formulario de Inscripción");
-
-        jLabel2.setText("Seleccione un alumno/a:");
-
         jLabel3.setText("Listado de Materias");
+
+        jbSalir.setText("Salir");
+
+        escritorio2.setLayer(radioNoInscriptas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(radioInscriptas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(cboxAlumno, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(jbAnular, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(jbInscribir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio2.setLayer(jbSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout escritorio2Layout = new javax.swing.GroupLayout(escritorio2);
+        escritorio2.setLayout(escritorio2Layout);
+        escritorio2Layout.setHorizontalGroup(
+            escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorio2Layout.createSequentialGroup()
+                .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(escritorio2Layout.createSequentialGroup()
+                        .addContainerGap(41, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(cboxAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15))
+                    .addGroup(escritorio2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jbInscribir)
+                        .addGap(72, 72, 72)
+                        .addComponent(jbAnular)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbSalir)))
+                .addGap(41, 41, 41))
+            .addGroup(escritorio2Layout.createSequentialGroup()
+                .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(escritorio2Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(escritorio2Layout.createSequentialGroup()
+                                .addComponent(radioInscriptas)
+                                .addGap(67, 67, 67)
+                                .addComponent(radioNoInscriptas))))
+                    .addGroup(escritorio2Layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jLabel3))
+                    .addGroup(escritorio2Layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        escritorio2Layout.setVerticalGroup(
+            escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escritorio2Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cboxAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioInscriptas)
+                    .addComponent(radioNoInscriptas))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbInscribir)
+                    .addComponent(jbAnular)
+                    .addComponent(jbSalir))
+                .addGap(25, 25, 25))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jbInscribir)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbAnular)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbSalir))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(radioInscriptas)
-                                .addGap(18, 18, 18)
-                                .addComponent(radioNoInscriptas)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cboxAlumno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(escritorio2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cboxAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radioInscriptas)
-                    .addComponent(radioNoInscriptas))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbSalir)
-                    .addComponent(jbAnular)
-                    .addComponent(jbInscribir))
-                .addContainerGap())
+            .addComponent(escritorio2)
         );
 
         pack();
@@ -230,6 +254,7 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Alumno> cboxAlumno;
+    private javax.swing.JDesktopPane escritorio2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
