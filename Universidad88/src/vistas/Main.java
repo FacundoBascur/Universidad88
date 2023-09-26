@@ -22,7 +22,7 @@ public class Main extends javax.swing.JFrame {
         jMFormularioMateria = new javax.swing.JMenuItem();
         jMListarMaterias = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        formularioInscripcion = new javax.swing.JMenuItem();
+        formularioInscripcion2 = new javax.swing.JMenuItem();
         maniNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         alumXmateria = new javax.swing.JMenuItem();
@@ -106,14 +106,14 @@ public class Main extends javax.swing.JFrame {
 
         jMenu5.setText("Administración");
 
-        formularioInscripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
-        formularioInscripcion.setText("Manejo de inscripciones");
-        formularioInscripcion.addActionListener(new java.awt.event.ActionListener() {
+        formularioInscripcion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
+        formularioInscripcion2.setText("Manejo de inscripciones");
+        formularioInscripcion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                formularioInscripcionActionPerformed(evt);
+                formularioInscripcion2ActionPerformed(evt);
             }
         });
-        jMenu5.add(formularioInscripcion);
+        jMenu5.add(formularioInscripcion2);
 
         maniNotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
         maniNotas.setText("Manipulación de notas");
@@ -162,16 +162,6 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formularioInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioInscripcionActionPerformed
-        escritorio.removeAll();
-        escritorio.repaint();
-        FormularioInscripcion form = new FormularioInscripcion();
-        form.setVisible(true);
-        escritorio.add(form);
-        escritorio.moveToFront(form);
-        form.setLocation(228, 125);
-    }//GEN-LAST:event_formularioInscripcionActionPerformed
 
     private void busquedaModificiacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busquedaModificiacionActionPerformed
         escritorio.removeAll();
@@ -246,6 +236,16 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMSalirMouseClicked
 
+    private void formularioInscripcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formularioInscripcion2ActionPerformed
+      escritorio.removeAll();
+      escritorio.repaint();
+      formularioInscripcion2 form=new formularioIncripcion2();
+      form.setVisible(true);
+      escritorio.add(form);
+      escritorio.moveToFront(form);
+      form.setLocation(250, 208);
+    }//GEN-LAST:event_formularioInscripcion2ActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -267,7 +267,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem alumXmateria;
     private javax.swing.JMenuItem busquedaModificiacion;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenuItem formularioInscripcion;
+    private javax.swing.JMenuItem formularioInscripcion2;
     private javax.swing.JMenuItem jMFormularioMateria;
     private javax.swing.JMenuItem jMListarMaterias;
     private javax.swing.JMenu jMSalir;

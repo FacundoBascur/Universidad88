@@ -339,7 +339,7 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         }
     }
     
-    //para setear nombres columnas
+    //para setear nombres de columnas
     private void armarTabla (){
         
         ArrayList <String> filaTitulo = new ArrayList <>();
@@ -378,5 +378,5 @@ public class FormularioInscripcion extends javax.swing.JFrame {
             modelo.addRow(new Object[]{m.getIdMateria(),m.getNombre(),m.getAnio()});
         }
     }
-
+    
 }
