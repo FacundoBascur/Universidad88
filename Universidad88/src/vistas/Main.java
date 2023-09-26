@@ -231,7 +231,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jMSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMSalirMouseClicked
         String[] list = {"Si", "No"};
-        int opcion = JOptionPane.showOptionDialog(null, "Confirmar cierre de programa", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); //te devuelve el indice de la lista. si elegis "si" devuelve 0 y con "no" devuelve 1 , etc
+        int opcion = JOptionPane.showOptionDialog(null, "Desea salir del programa?", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); //te devuelve el indice de la lista. si elegis "si" devuelve 0 y con "no" devuelve 1 , etc
 
         if (opcion == 0) {
             dispose();
