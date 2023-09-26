@@ -94,6 +94,7 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu4.add(jMFormularioMateria);
 
+        jMListarMaterias.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\seleccionar.png")); // NOI18N
         jMListarMaterias.setText("Listar Materias");
         jMListarMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +213,7 @@ public class Main extends javax.swing.JFrame {
         escritorio.repaint();
         ManipNotas notas = new ManipNotas();
         notas.setVisible(true);
+        notas.setFrameIcon(null);
         escritorio.add(notas);
         escritorio.moveToFront(notas);
         notas.setLocation(250, 208);

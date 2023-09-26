@@ -14,9 +14,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
 
     public ListarAlumnos() {
         initComponents();
-        String[] titulos = new String[]{"ID", "DNI", "Apellido", "Nombre", "Fecha", "Estado"};
-        tabla.setColumnIdentifiers(titulos);
-        tablaAlumnos.setModel(tabla);
+        armarTabla();
     }
 
     @SuppressWarnings("unchecked")
@@ -277,7 +275,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         if (tablaAlumnos.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un alumno para continuar");
         } else {
-
+          
             int dni = Integer.parseInt(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 1).toString());
             String ap = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 2).toString();
             String nom = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 3).toString();
@@ -315,7 +313,12 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
     private void limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarActionPerformed
         jtidentificador.setText("");
     }//GEN-LAST:event_limpiarActionPerformed
-
+ 
+    private void armarTabla(){
+        String[] titulos = new String[]{"ID", "DNI", "Apellido", "Nombre", "Fecha", "Estado"};
+        tabla.setColumnIdentifiers(titulos);
+        tablaAlumnos.setModel(tabla);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Modificar;
