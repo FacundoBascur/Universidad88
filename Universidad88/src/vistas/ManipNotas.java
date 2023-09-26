@@ -28,10 +28,9 @@ public class ManipNotas extends javax.swing.JInternalFrame {
         listaAlumnos = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaNotas = new javax.swing.JTable();
+        salir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setClosable(true);
-        setMaximizable(true);
 
         modificarNota.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         modificarNota.setForeground(new java.awt.Color(0, 0, 0));
@@ -76,6 +75,14 @@ public class ManipNotas extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablaNotas);
 
+        salir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\cerrar-sesion.png")); // NOI18N
+        salir.setBorder(null);
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,7 +95,9 @@ public class ManipNotas extends javax.swing.JInternalFrame {
                             .addComponent(jScrollPane1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(modificarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(modificarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel1)
@@ -107,7 +116,9 @@ public class ManipNotas extends javax.swing.JInternalFrame {
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(modificarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(modificarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -117,7 +128,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
     private void listaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAlumnosActionPerformed
 
         tabla.setRowCount(0);
-        
+
         Alumno seleccionado = (Alumno) listaAlumnos.getSelectedItem();
 
         for (Inscripcion ins : ins.averiguarInscriptosPorIdAlumno(seleccionado.getIdAlumno())) {
@@ -136,17 +147,29 @@ public class ManipNotas extends javax.swing.JInternalFrame {
 
                 JOptionPane.showMessageDialog(null, "Debe colocar una nota entre 0 - 10");
             } else {
-                ins.modificarNota(idAlum, idMat, nota);
+                
+                String[] list = {"Si", "No"};
+                int opcion = JOptionPane.showOptionDialog(null, "¿Confirma modificacion de la calificación?", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+                
+                if (opcion == 0) {
+                    ins.modificarNota(idAlum, idMat, nota);
+                }else{
+                    JOptionPane.showMessageDialog(null, "La modificación ha sido cancelada");
+                }
             }
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Formato de ´Nota´ incorrecto");
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
         }
 
         listaAlumnosActionPerformed(evt);
     }//GEN-LAST:event_modificarNotaActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_salirActionPerformed
 
     private void armadoCabecera() {
         String[] titulos = new String[]{"ID", "Nombre", "Nota"};
@@ -171,6 +194,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<Alumno> listaAlumnos;
     private javax.swing.JButton modificarNota;
+    private javax.swing.JButton salir;
     private javax.swing.JTable tablaNotas;
     // End of variables declaration//GEN-END:variables
 }

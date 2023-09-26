@@ -152,6 +152,10 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+
+        int cont = 0;
+        int dniDu = 0;
+
         try {
 
             if (jtApellido.getText().isEmpty() || jtNombre.getText().isEmpty() || jtDni.getText().isEmpty()) { // verifica si los jtextfield estan vacios
@@ -162,7 +166,21 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
 
                 LocalDate fecha = jcFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-                alumno.guardarAlumnos(new Alumno(Integer.parseInt(jtDni.getText()), jtApellido.getText(), jtNombre.getText(), fecha, activo.isSelected())); // crea el alumno, llama al metodo y lo setea en la base de datos
+                //en este for recorro toda la lista de alumnos registrados y voy comporando los dni con el que se coloco en el jtextfield, si este ya se encuentra - cont pasara a valer 1 
+                for (Alumno alum : alumno.listarAlumnos()) {
+
+                    if (alum.getDni() == Integer.parseInt(jtDni.getText())) {
+                        cont++;
+                        dniDu = Integer.parseInt(jtDni.getText());
+                        break;
+                    }
+                }
+
+                if (cont == 0) {
+                    alumno.guardarAlumnos(new Alumno(Integer.parseInt(jtDni.getText()), jtApellido.getText(), jtNombre.getText(), fecha, activo.isSelected())); // crea el alumno, llama al metodo y lo setea en la base de datos
+                } else {
+                    JOptionPane.showMessageDialog(null, "El DNI " + dniDu + "\nYa se encuentra registrado en la base de datos \nIntenetelo nuevamente");
+                }
 
                 jtApellido.setText("");
                 jtDni.setText("");
