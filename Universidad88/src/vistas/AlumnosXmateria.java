@@ -1,14 +1,22 @@
 package vistas;
 
+import entidades.Alumno;
+import entidades.Inscripcion;
+import entidades.Materia;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import persistencia.InscripcionData;
+import persistencia.MateriaData;
 
 
 public class AlumnosXmateria extends javax.swing.JInternalFrame {
-    
+    InscripcionData ins = new InscripcionData();
     DefaultTableModel tabla = new DefaultTableModel();
-    
-    public AlumnosXmateria() {
+   MateriaData materia=new MateriaData();
+   
+   public AlumnosXmateria() {
         initComponents();
+        cargarCBox();
         String[] colum = {"ID","DNI","Apellido","Nombre"};
         tabla.setColumnIdentifiers(colum);
         tablaConsulta.setModel(tabla);  
@@ -99,12 +107,27 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void jCMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCMateriasActionPerformed
-    
+    Materia mat=(Materia)jCMaterias.getSelectedItem();
+      Alumno alumno = new Alumno();
+    for(Alumno ins: ins.averiguarAlumnosPorMateria(mat.getIdMateria())){
+    tabla.addRow(new Object[]{alumno.getIdAlumno(),alumno.getDni(),alumno.getApellido(),alumno.getNombre()});
+    }
     }//GEN-LAST:event_jCMateriasActionPerformed
+private void cargarCBox(){
 
+     MateriaData materia=new MateriaData();
+    List<Materia> lista=materia.listarMateriasPorEstado(true);
+for(Materia mat: lista){
+jCMaterias.addItem(mat);
+
+
+
+}
+
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jCMaterias;
+    private javax.swing.JComboBox<Materia> jCMaterias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton salir;
