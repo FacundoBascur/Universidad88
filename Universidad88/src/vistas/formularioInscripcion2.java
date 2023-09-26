@@ -12,8 +12,8 @@ import persistencia.InscripcionData;
 import persistencia.MateriaData;
 
 public class formularioInscripcion2 extends javax.swing.JInternalFrame {
-    
-     private List<Materia> listaM;
+
+    private List<Materia> listaM;
     private List<Alumno> listaA;
 
     private InscripcionData inscData;
@@ -22,7 +22,6 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo;
 
-    
     public formularioInscripcion2() {
         initComponents();
         modelo = new DefaultTableModel();
@@ -33,8 +32,8 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
         listaM = (ArrayList<Materia>) mateData.listarMaterias();
         listaA = (ArrayList<Alumno>) alumData.listarAlumnos();
         cargarAlumnos(); // rellenar del combo box    
-        
-        
+        //  cargarTodas();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -217,9 +216,9 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
 
     private void jbAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularActionPerformed
         int filaElegida = jtMate.getSelectedRow();
-        if(filaElegida!=-1){
-            Alumno alum = (Alumno)cboxAlumno.getSelectedItem();
-            int idMate = (Integer)modelo.getValueAt(filaElegida, 0);
+        if (filaElegida != -1) {
+            Alumno alum = (Alumno) cboxAlumno.getSelectedItem();
+            int idMate = (Integer) modelo.getValueAt(filaElegida, 0);
             inscData.borrarInscripcion(alum.getIdAlumno(), idMate);
 
         } else {
@@ -230,27 +229,30 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
 
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
         int filaElegida = jtMate.getSelectedRow();
-        if(filaElegida !=-1){
 
-            Alumno alum = (Alumno) cboxAlumno.getSelectedItem();
+        if (filaElegida == -1) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar la materia a la que desea inscribirse.");
+        } else if(radioInscriptas.isSelected()==true) {
+         JOptionPane.showMessageDialog(this, "Debe seleccionar una materia a la que no esté inscripto.");
+        
+        } else {Alumno alum = (Alumno) cboxAlumno.getSelectedItem();
             int idMate = (Integer) modelo.getValueAt(filaElegida, 0);
             String nombreMate = (String) modelo.getValueAt(filaElegida, 1);
-            int anio=(Integer)modelo.getValueAt(filaElegida, 2);
+            int anio = (Integer) modelo.getValueAt(filaElegida, 2);
             Materia mate = new Materia(idMate, nombreMate, anio, true);
-            Inscripcion insc = new Inscripcion (alum, mate, 0);
+            Inscripcion insc = new Inscripcion(alum, mate, 0);
             inscData.guardarInscripcion(insc);
             borrarFilasTabla();
-        }
+        
+    
     }//GEN-LAST:event_jbInscribirActionPerformed
 
-    
-    
+}
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
 
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Alumno> cboxAlumno;
     private javax.swing.JDesktopPane escritorio2;
@@ -266,47 +268,53 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton radioNoInscriptas;
     // End of variables declaration//GEN-END:variables
 
-     //para ir agregando al cBox
+    //para ir agregando al cBox
     private void cargarAlumnos() {
-        for(Alumno item: listaA){
+        for (Alumno item : listaA) {
             cboxAlumno.addItem(item);
         }
     }
 
     private void armarTabla() {
-        ArrayList <String> filaTitulo = new ArrayList <>();
+        ArrayList<String> filaTitulo = new ArrayList<>();
         filaTitulo.add("ID");
         filaTitulo.add("Nombre");
         filaTitulo.add("Año");
-        for(String i: filaTitulo) {
+        for (String i : filaTitulo) {
             modelo.addColumn(i);
         }
-        
+
         jtMate.setModel(modelo);
     }
 
     private void borrarFilasTabla() {
-         int indice = modelo.getRowCount()-1;
-        for (int i = indice; i>=0; i--){
+        int indice = modelo.getRowCount() - 1;
+        for (int i = indice; i >= 0; i--) {
             modelo.removeRow(i);
-        } 
+        }
     }
 
     private void cargarInscriptas() {
-         Alumno elegido = (Alumno)cboxAlumno.getSelectedItem();
-        List<Materia>lista = inscData.averiguarMateriasInscriptas(elegido.getIdAlumno());
-        
-        for(Materia m : lista){
-            modelo.addRow(new Object []{m.getIdMateria(),m.getNombre(),m.getAnio()});
-        } 
-    }
-    
-    private void cargarNoInscriptas(){
-        
-        Alumno elegido = (Alumno)cboxAlumno.getSelectedItem();
-        List <Materia> listaM = inscData.averiguarMateriasNoInscriptas(elegido.getIdAlumno());
-        for(Materia m: listaM){
-            modelo.addRow(new Object[]{m.getIdMateria(),m.getNombre(),m.getAnio()});
+        Alumno elegido = (Alumno) cboxAlumno.getSelectedItem();
+        List<Materia> lista = inscData.averiguarMateriasInscriptas(elegido.getIdAlumno());
+
+        for (Materia m : lista) {
+            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnio()});
         }
     }
+
+    private void cargarNoInscriptas() {
+
+        Alumno elegido = (Alumno) cboxAlumno.getSelectedItem();
+        List<Materia> listaM = inscData.averiguarMateriasNoInscriptas(elegido.getIdAlumno());
+        for (Materia m : listaM) {
+            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnio()});
+        }
+
+    }
+    /*  private void cargarTodas(){
+    
+        for(Materia mat: mateData.listarMaterias()){
+        modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});*/
+
 }

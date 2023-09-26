@@ -77,32 +77,33 @@ public class MateriaData {
         return materia;
     }
 
-    public void modificarMateria(int id, String nombre, int anio, boolean estado) {
-   
-        String sql = "UPDATE materia SET nombre=?, anio=?, estado=? WHERE idMateria=?";
+    public void modificarMateria(int id, String nombre, int anio) {
+ Materia materia=null;
+        String sql = "UPDATE materia SET nombre=?, anio=? WHERE idMateria=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(4, id);
-            ps.setString(1, nombre);
+             ps.setString(1, nombre);
             ps.setInt(2, anio);
-            ps.setBoolean(3, estado);
+            ps.setInt(3, id);
+           
+           
 
      int resul=ps.executeUpdate();
      if(resul==1){
-             
+            
           JOptionPane.showMessageDialog(null, "Materia modificada exitosamente.");
             }
-            ps.close();
-        } catch (NullPointerException n) {
-            JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con ese id");
-        } catch (SQLException ex) {
+      
+        }  catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos.");
-                }
-   //return mat;
+                
+       
+        }
+ 
     
     }
- /*   public void bajaMateria(Integer id) {
+ public void bajaMateria(int id) {
 
         String sql = "UPDATE materia SET estado=0 WHERE idMateria=?";
 
@@ -121,7 +122,7 @@ public class MateriaData {
         }
     }
 
-    public void altaMateria(Integer id) {
+    public void altaMateria(int id) {
 
         String sql = "UPDATE materia SET estado=1 WHERE idMateria=?";
 
@@ -139,7 +140,7 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null, "No se encontró ninguna materia con ese Id");
         }
     }
-*/
+
     public List<Materia> listarMaterias() {
         Materia materia = null;
 

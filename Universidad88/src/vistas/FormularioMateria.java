@@ -70,7 +70,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         BGuardar.setBackground(new java.awt.Color(153, 153, 153));
         BGuardar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BGuardar.setForeground(new java.awt.Color(51, 51, 51));
-        BGuardar.setLabel("Guardar / Modificar");
+        BGuardar.setLabel("Guardar ");
         BGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BGuardarActionPerformed(evt);
@@ -134,7 +134,6 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                     .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(CActivo2)
-                    .addComponent(BGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(BSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,6 +141,8 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(BNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138)
+                .addComponent(BGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -176,8 +177,6 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                     .addComponent(BSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47))
         );
-
-        BGuardar.getAccessibleContext().setAccessibleName("Guardar / Modificar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -246,8 +245,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
 
     private void BGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGuardarActionPerformed
-        if (jTId.getText().isEmpty() == true) {
-            try {
+      try{
                 if (!jTId.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "El campo Id debe estar vacío.");
                 } else if (jTNombre.getText().isEmpty()) {
@@ -271,57 +269,17 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
                 }
             } catch (NumberFormatException | IndexOutOfBoundsException | NullPointerException p) {
-                JOptionPane.showMessageDialog(null, "Error al registrar, campos en formato incorrecto.");
-            }
+                JOptionPane.showMessageDialog(null, "Error al registrar, campos en formato incorrecto."); 
 
     }//GEN-LAST:event_BGuardarActionPerformed
-else {
-            if (jTNombre.getText().isEmpty() || jTAnio.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No puede haber campos de texto vacíos.");
-            }else{
-          int id=Integer.parseInt(jTId.getText());
-          String nombre=jTNombre.getText();
-          int anio=Integer.parseInt(jTAnio.getText());
-          boolean estado=CActivo2.isSelected();
-        
-          materia.modificarMateria(id, nombre, anio, estado);
-                        
-            
 
-            /*    try {
-               
-                if (mat.getNombre() == nombre) {
-                } else if (mat.getNombre() != nombre) {
-                    mat.setNombre(nombre);
-                    JOptionPane.showMessageDialog(null, "Nombre de la materia modificado exitosamente.");
-                }
-                if (mat.getAnio() == anio) {
-                } else if (mat.getAnio() != anio && jTAnio.getText().length() > 1) {
-                    JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
-                } else {
-                    mat.setAnio(anio);
-                    JOptionPane.showMessageDialog(null, "Año de la materia modificado exitosamente.");
-                }
-                if (mat.isActivo() == CActivo2.isSelected()) {
-                } else {
-                    mat.setActivo(estado);
-                    if (mat.isActivo() == true) {
-                        JOptionPane.showMessageDialog(null, "La materia cambio a estado activo.");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "La materia cambio a estado inactivo");
-                    }
-                }
-            } catch (NullPointerException n) {
-                JOptionPane.showMessageDialog(null, "Error en formulario materia");*/
-            }
-        }
             jTId.setText("");
             jTNombre.setText("");
             jTAnio.setText("");
             CActivo2.setSelected(false);
         
-    
-    }
+
+    } 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button BBuscar;
     private java.awt.Button BGuardar;

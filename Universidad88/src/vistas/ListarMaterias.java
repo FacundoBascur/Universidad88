@@ -1,4 +1,3 @@
-
 package vistas;
 
 import entidades.Materia;
@@ -7,22 +6,17 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import persistencia.MateriaData;
 
-
 public class ListarMaterias extends javax.swing.JInternalFrame {
 
-     private DefaultTableModel model = new DefaultTableModel();
-MateriaData materia=new MateriaData();
-   
-public boolean inCelEditable(int f, int c) {
-        return true;
-    }
-   
+    private DefaultTableModel model = new DefaultTableModel();
+    MateriaData materia = new MateriaData();
+
     public ListarMaterias() {
         initComponents();
         armarCabecera();
+        jTabla.setModel(model);
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -44,6 +38,12 @@ public boolean inCelEditable(int f, int c) {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Listar Materias");
 
+        //Agregue este metodo para que la columna id no sea editable
+        jTabla = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int columnIndex){
+                return columnIndex > 0 && columnIndex < 4;
+            }
+        };
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -55,6 +55,7 @@ public boolean inCelEditable(int f, int c) {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTabla.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(jTabla);
 
         jCSeleccionar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Todas", "Activas", "Inactivas" }));
@@ -132,64 +133,125 @@ public boolean inCelEditable(int f, int c) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCSeleccionarActionPerformed
-    
-     String opciones=jCSeleccionar.getSelectedItem().toString();
-    try{ 
-     if(opciones.equals("<Seleccionar>")){
-          model.setRowCount(0);
-     JOptionPane.showMessageDialog(null, "Debe seleccionar una de las opciones.");
-     }else if(opciones.equals("Todas")){
-     
-       model.setRowCount(0);
-             
-       List<Materia> listaMaterias=materia.listarMaterias();
-                for(Materia mat: listaMaterias){
-                   
-                    model.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});
-                    }     
-     }
-     else if(opciones.equals("Activas")){
-     
-       model.setRowCount(0);
-             
-       List<Materia> listaMaterias=materia.listarMaterias();
-                for(Materia mat: listaMaterias){
-                    if(mat.isActivo()==true){
-                    model.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});
-                            
-     }
-                }
-     }else if(opciones.equals("Inactivas")){
-     
-       model.setRowCount(0);
-             
-       List<Materia> listaMaterias=materia.listarMaterias();
-                for(Materia mat: listaMaterias){
-              if(mat.isActivo()==false){
-                    model.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});
-                            
-     }
-     }
-     }
-     
-        
-        
-    }catch(NullPointerException e){
-    JOptionPane.showMessageDialog(null, "El item seleccionado es incorrecto.");
 
- 
-        
-        
+        String opciones = jCSeleccionar.getSelectedItem().toString();
+        try {
+            if (opciones.equals("<Seleccionar>")) {
+                model.setRowCount(0);
+
+            } else if (opciones.equals("Todas")) {
+
+                model.setRowCount(0);
+
+                List<Materia> listaMaterias = materia.listarMaterias();
+                for (Materia mat : listaMaterias) {
+
+                    model.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), mat.getAnio(), mat.isActivo()});
+                }
+            } else if (opciones.equals("Activas")) {
+
+                model.setRowCount(0);
+
+                List<Materia> listaMaterias = materia.listarMaterias();
+                for (Materia mat : listaMaterias) {
+                    if (mat.isActivo() == true) {
+                        model.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), mat.getAnio(), mat.isActivo()});
+
+                    }
+                }
+            } else if (opciones.equals("Inactivas")) {
+
+                model.setRowCount(0);
+
+                List<Materia> listaMaterias = materia.listarMaterias();
+                for (Materia mat : listaMaterias) {
+                    if (mat.isActivo() == false) {
+                        model.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), mat.getAnio(), mat.isActivo()});
+
+                    }
+                }
+            }
+
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "El item seleccionado es incorrecto.");
+
+
     }//GEN-LAST:event_jCSeleccionarActionPerformed
     }
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
-        // TODO add your handling code here:
+        try {
+            if (jTabla.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(null, "No se ha realizado ninguna modificación.");
+
+            } else if (jTabla.isColumnSelected(3)) {
+                JOptionPane.showMessageDialog(null, "El estado no puede modificarse con este comando.");
+
+                jCSeleccionar.setSelectedItem("<Seleccionar>");
+                model.setRowCount(0);
+            } else {
+
+                //En estas variables se guardan los datos obtenidos al seleccionar una fila de la tabla. "tabla.getValueAt(jTabla.getSelectedRow --> selecciona fila"
+                int id = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 0).toString());
+                String nombre = model.getValueAt(jTabla.getSelectedRow(), 1).toString();
+                int anio = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 2).toString());
+
+                String[] list = {"Si", "No"};
+                int opcion = JOptionPane.showOptionDialog(null, " Confirmar modificacion", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); // muestra un cuadro de dialogo para confirmar la modificacion de la materia devuelve 0 o 1 dependiendo la opcion que se elija
+
+                if (opcion == 0) {
+                    materia.modificarMateria(id, nombre, anio);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Modificacion cancelada");
+                }
+
+            }
+        } catch (NumberFormatException | NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Error, se ingresó un tipo de formato incorrecto.");
+
+            jCSeleccionar.setSelectedItem("<Seleccionar>");
+            model.setRowCount(0);
+        }
+
     }//GEN-LAST:event_jBModificarActionPerformed
 
     private void jBBajaAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBajaAltaActionPerformed
-        // TODO add your handling code here:
+      
+            if (jTabla.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(null, "No se ha realizado ninguna modificación.");
+            } else {
+
+                //En estas variables se guardan los datos obtenidos al seleccionar una fila de la tabla. "tabla.getValueAt(jTabla.getSelectedRow --> selecciona fila"
+                int id = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 0).toString());
+                String nombre = model.getValueAt(jTabla.getSelectedRow(), 1).toString();
+                int anio = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 2).toString());
+                boolean estado = Boolean.parseBoolean(model.getValueAt(jTabla.getSelectedRow(), 3).toString());
+
+                if (estado) {
+                    String[] list = {"Si", "No"};
+                    int opcion = JOptionPane.showOptionDialog(null, "Confirmar Baja de Materia: \n " + nombre,"", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+
+                    if (opcion == 0) {
+                       materia.bajaMateria(id);
+                      
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Baja cancelada");
+                    }
+                } else {
+                    String[] list = {"Si", "No"};
+                    int opcion = JOptionPane.showOptionDialog(null, "Confirmar Alta de Materia: \n" + nombre, "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+
+                    if (opcion == 0) {
+                     materia.altaMateria(id);
+                      
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Alta cancelada");
+                    }
+                } 
     }//GEN-LAST:event_jBBajaAltaActionPerformed
-    
+   jCSeleccionar.setSelectedItem("<Seleccionar>");
+            model.setRowCount(0);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBajaAlta;
@@ -201,20 +263,12 @@ public boolean inCelEditable(int f, int c) {
     private javax.swing.JTable jTabla;
     // End of variables declaration//GEN-END:variables
 
-private void armarCabecera() {
+    private void armarCabecera() {
 
         model.addColumn("Id Materia");
         model.addColumn("Nombre");
         model.addColumn("Año");
         model.addColumn("Estado");
-      jTabla.setModel(model);
-      
 
     }
 }
- 
-
-
-
-
-

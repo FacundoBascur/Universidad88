@@ -76,7 +76,6 @@
                       <Component id="jTNombre" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="CActivo2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="BGuardar" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jTAnio" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="80" max="32767" attributes="0"/>
@@ -86,6 +85,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="BNuevo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                  <Component id="BGuardar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -212,11 +213,8 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="label" type="java.lang.String" value="Guardar / Modificar"/>
+            <Property name="label" type="java.lang.String" value="Guardar "/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Guardar / Modificar"/>
-          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BGuardarActionPerformed"/>
           </Events>

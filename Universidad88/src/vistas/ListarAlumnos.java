@@ -197,7 +197,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Error en la modificacion - el DNI colocado no es correcto, excede limites de digitos");
         }
 
-        buscarActionPerformed(evt);
+      
 
     }//GEN-LAST:event_ModificarActionPerformed
 
