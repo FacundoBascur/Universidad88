@@ -8,21 +8,20 @@ import javax.swing.table.DefaultTableModel;
 import persistencia.InscripcionData;
 import persistencia.MateriaData;
 
-
 public class AlumnosXmateria extends javax.swing.JInternalFrame {
+
     InscripcionData ins = new InscripcionData();
     DefaultTableModel tabla = new DefaultTableModel();
-   MateriaData materia=new MateriaData();
-   
-   public AlumnosXmateria() {
+    MateriaData materia = new MateriaData();
+
+    public AlumnosXmateria() {
         initComponents();
         cargarCBox();
-        String[] colum = {"ID","DNI","Apellido","Nombre"};
+        String[] colum = {"ID", "DNI", "Apellido", "Nombre"};
         tabla.setColumnIdentifiers(colum);
-        tablaConsulta.setModel(tabla);  
+        tablaConsulta.setModel(tabla);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -73,8 +72,8 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jCMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jCMaterias, 0, 201, Short.MAX_VALUE)
                 .addGap(21, 21, 21))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -107,24 +106,26 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void jCMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCMateriasActionPerformed
-    Materia mat=(Materia)jCMaterias.getSelectedItem();
-      Alumno alumno = new Alumno();
-    for(Alumno ins: ins.averiguarAlumnosPorMateria(mat.getIdMateria())){
-    tabla.addRow(new Object[]{alumno.getIdAlumno(),alumno.getDni(),alumno.getApellido(),alumno.getNombre()});
-    }
+        Materia mat = (Materia) jCMaterias.getSelectedItem();
+        Alumno alumno = new Alumno();
+
+        for (Alumno ins : ins.averiguarAlumnosPorMateria(mat.getIdMateria())) {
+
+            tabla.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+        }
     }//GEN-LAST:event_jCMateriasActionPerformed
-private void cargarCBox(){
+    private void cargarCBox() {
+        boolean act = true;
+        MateriaData materia = new MateriaData();
+        List<Materia> lista = materia.listarMaterias();
 
-     MateriaData materia=new MateriaData();
-    List<Materia> lista=materia.listarMateriasPorEstado(true);
-for(Materia mat: lista){
-jCMaterias.addItem(mat);
+        for (Materia mat : lista) {
+            if (mat.isActivo()) {
+                jCMaterias.addItem(mat);
+            }
+        }
 
-
-
-}
-
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Materia> jCMaterias;

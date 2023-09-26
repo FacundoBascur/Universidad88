@@ -41,7 +41,7 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
         //Agregue este metodo para que la columna id no sea editable
         jTabla = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int columnIndex){
-                return columnIndex > 0 && columnIndex < 4;
+                return columnIndex > 0 && columnIndex < 3;
             }
         };
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -56,6 +56,7 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
             }
         ));
         jTabla.setCellSelectionEnabled(true);
+        jTabla.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTabla);
 
         jCSeleccionar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Todas", "Activas", "Inactivas" }));
@@ -153,10 +154,9 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
                 model.setRowCount(0);
 
                 List<Materia> listaMaterias = materia.listarMaterias();
-                for (Materia mat : listaMaterias) {
+                for (Materia mat : listaMaterias) {                   
                     if (mat.isActivo() == true) {
                         model.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), mat.getAnio(), mat.isActivo()});
-
                     }
                 }
             } else if (opciones.equals("Inactivas")) {

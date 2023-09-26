@@ -103,7 +103,7 @@ public class MateriaData {
  
     
     }
- public void bajaMateria(int id) {
+    public void bajaMateria(int id) {
 
         String sql = "UPDATE materia SET estado=0 WHERE idMateria=?";
 
@@ -173,7 +173,7 @@ public class MateriaData {
         return listaMaterias;
 
     }
-
+/*
     public List<Materia> listarMateriasPorEstado(boolean estado) {
         Materia materia = null;
 
@@ -205,5 +205,6 @@ public class MateriaData {
 
         return listaMateriasPorEstado;
 
-    }
+    }*/
+    
 }

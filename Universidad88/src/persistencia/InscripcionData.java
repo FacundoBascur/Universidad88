@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class InscripcionData {
@@ -19,7 +21,7 @@ public class InscripcionData {
     private AlumnoData alumData = new AlumnoData();
 
     public InscripcionData() {
-        this.con = Conexion.getConexion();
+        con = Conexion.getConexion();
     }
 
     public void guardarInscripcion(Inscripcion insc) {
@@ -182,27 +184,34 @@ public class InscripcionData {
     }
 
     public List<Alumno> averiguarAlumnosPorMateria(int idMateria) {
-
+        Alumno alumno = null;
         ArrayList<Alumno> alumnosMate = new ArrayList<>();
 
-        String sql = "SELECT a.idAlumno, dni, apellido, nombre,  FROM inscripcion i, alumno a WHERE i.idAlumno = a.idAlumno AND idMAteria = ? AND a.estado = 1";
+        String sql = "SELECT a.idAlumno, a.dni, a.apellido, a.nombre  "
+                + "FROM inscripcion i, alumno a "
+                + "WHERE i.idAlumno = a.idAlumno AND idMateria = ? AND a.estado = 1";
+        
         try {
-            PreparedStatement ps = con.prepareCall(sql);
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            
             ps.setInt(1, idMateria);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Alumno alumno = new Alumno();
+                alumno = new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
                
                 alumnosMate.add(alumno);
             }
+            
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo acceder a ninguna de las entidades de la base de datos. Intente nuevamente, por favor");
         }
 
         return alumnosMate;
-    }
+    }   
 }
