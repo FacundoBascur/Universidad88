@@ -11,7 +11,6 @@ public class ManipNotas extends javax.swing.JInternalFrame {
 
     DefaultTableModel tabla = new DefaultTableModel();
     InscripcionData ins = new InscripcionData();
-    
 
     public ManipNotas() {
 
@@ -24,7 +23,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        guardarNota = new javax.swing.JButton();
+        modificarNota = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         listaAlumnos = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -34,11 +33,16 @@ public class ManipNotas extends javax.swing.JInternalFrame {
         setClosable(true);
         setMaximizable(true);
 
-        guardarNota.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        guardarNota.setForeground(new java.awt.Color(0, 0, 0));
-        guardarNota.setText("Guardar ");
-        guardarNota.setBorder(null);
-        guardarNota.setBorderPainted(false);
+        modificarNota.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        modificarNota.setForeground(new java.awt.Color(0, 0, 0));
+        modificarNota.setText("Modificar");
+        modificarNota.setBorder(null);
+        modificarNota.setBorderPainted(false);
+        modificarNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarNotaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -53,6 +57,12 @@ public class ManipNotas extends javax.swing.JInternalFrame {
             }
         });
 
+        //Agregue este metodo para que la columna id no sea editable
+        tablaNotas = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int columnIndex){
+                return columnIndex > 1;
+            }
+        };
         tablaNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -78,7 +88,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
                             .addComponent(jScrollPane1)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(guardarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(modificarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel1)
@@ -97,7 +107,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(guardarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(modificarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -106,13 +116,37 @@ public class ManipNotas extends javax.swing.JInternalFrame {
 
     private void listaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaAlumnosActionPerformed
 
-        Alumno alum = (Alumno) listaAlumnos.getSelectedItem();
-
-        for (Inscripcion ins : ins.averiguarInscriptosPorIdAlumno(alum.getIdAlumno())) { 
-            tabla.addRow(new Object[]{ins.getidInscripcion(),ins.getMateria(),ins.getNota()});
-        }
+        tabla.setRowCount(0);
         
+        Alumno seleccionado = (Alumno) listaAlumnos.getSelectedItem();
+
+        for (Inscripcion ins : ins.averiguarInscriptosPorIdAlumno(seleccionado.getIdAlumno())) {
+            tabla.addRow(new Object[]{ins.getidInscripcion(), ins.getMateria().getNombre(), ins.getNota()});
+        }
     }//GEN-LAST:event_listaAlumnosActionPerformed
+
+    private void modificarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarNotaActionPerformed
+        try {
+            Alumno alum = (Alumno) listaAlumnos.getSelectedItem();
+            int idAlum = alum.getIdAlumno();
+            int idMat = Integer.parseInt(tabla.getValueAt(tablaNotas.getSelectedRow(), 0).toString());
+            int nota = Integer.parseInt(tabla.getValueAt(tablaNotas.getSelectedRow(), 2).toString());
+
+            if (nota < 0 || nota > 10) {
+
+                JOptionPane.showMessageDialog(null, "Debe colocar una nota entre 0 - 10");
+            } else {
+                ins.modificarNota(idAlum, idMat, nota);
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Formato de ´Nota´ incorrecto");
+        }catch (NullPointerException e){
+            JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
+        }
+
+        listaAlumnosActionPerformed(evt);
+    }//GEN-LAST:event_modificarNotaActionPerformed
 
     private void armadoCabecera() {
         String[] titulos = new String[]{"ID", "Nombre", "Nota"};
@@ -133,10 +167,10 @@ public class ManipNotas extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton guardarNota;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<Alumno> listaAlumnos;
+    private javax.swing.JButton modificarNota;
     private javax.swing.JTable tablaNotas;
     // End of variables declaration//GEN-END:variables
 }

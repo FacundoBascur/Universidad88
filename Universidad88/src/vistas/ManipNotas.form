@@ -34,7 +34,7 @@
                           <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="guardarNota" min="-2" pref="83" max="-2" attributes="0"/>
+                              <Component id="modificarNota" min="-2" pref="83" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -61,14 +61,14 @@
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="125" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="guardarNota" min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="modificarNota" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace pref="36" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="guardarNota">
+    <Component class="javax.swing.JButton" name="modificarNota">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="13" style="1"/>
@@ -76,12 +76,15 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Guardar "/>
+        <Property name="text" type="java.lang.String" value="Modificar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modificarNotaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -101,9 +104,6 @@
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -136,6 +136,9 @@
               </Table>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//Agregue este metodo para que la columna id no sea editable&#xa;tablaNotas = new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int columnIndex){&#xa;    return columnIndex &gt; 1;&#xa;    }&#xa;};"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
