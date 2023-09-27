@@ -152,7 +152,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
 
                 double nota = Double.parseDouble(tabla.getValueAt(tablaNotas.getSelectedRow(), 2).toString());
 
-                JOptionPane.showMessageDialog(null, idAlum + " " + idMat + " " + nota);
+                
 
                 if (nota < 0 || nota > 10) {
 
@@ -163,7 +163,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
                     int opcion = JOptionPane.showOptionDialog(null, "¿Confirma modificacion de la calificación?", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
 
                     if (opcion == 0) {
-                        JOptionPane.showMessageDialog(null, idAlum + " " + idMat + " " + nota);
+                        
                         ins.modificarNota(idAlum, idMat, nota);
                     } else {
                         JOptionPane.showMessageDialog(null, "La modificación ha sido cancelada");

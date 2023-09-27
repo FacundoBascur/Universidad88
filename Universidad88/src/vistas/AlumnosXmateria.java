@@ -1,7 +1,6 @@
 package vistas;
 
 import entidades.Alumno;
-import entidades.Inscripcion;
 import entidades.Materia;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -20,6 +19,7 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
         String[] colum = {"ID", "DNI", "Apellido", "Nombre"};
         tabla.setColumnIdentifiers(colum);
         tablaConsulta.setModel(tabla);
+        tabla.setRowCount(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -44,6 +44,12 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
             }
         });
 
+        //Agregue este metodo para que la columna id no sea editable
+        tablaConsulta = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int columnIndex){
+                return columnIndex > 4;
+            }
+        };
         tablaConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -55,6 +61,7 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaConsulta.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tablaConsulta);
 
         salir.setText("Salir");
@@ -109,10 +116,11 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
        
         Materia mat = (Materia) jCMaterias.getSelectedItem();
         Alumno alumno = new Alumno();
-
-        for (Alumno ins : ins.averiguarAlumnosPorMateria(mat.getIdMateria())) {
-
-            tabla.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+        List<Alumno> lista = ins.averiguarAlumnosPorMateria(mat.getIdMateria());
+        
+        tabla.setRowCount(0);
+        for (Alumno ins : ins.averiguarAlumnosPorMateria(mat.getIdMateria())) {          
+            tabla.addRow(new Object[]{ins.getIdAlumno(), ins.getDni(), ins.getApellido(), ins.getNombre()});
         }
     }//GEN-LAST:event_jCMateriasActionPerformed
     private void cargarCBox() {
