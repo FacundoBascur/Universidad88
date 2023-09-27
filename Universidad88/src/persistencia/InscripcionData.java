@@ -118,12 +118,12 @@ public class InscripcionData {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Inscripcion insc = new Inscripcion();
-                insc.setidInscripcion(rs.getInt("idInscripto"));
+                insc.setidInscripcion(rs.getInt("idInscripcion"));
                 Alumno alum = alumData.buscarPorId(rs.getInt("idAlumno"));
                 Materia mate = mateData.buscarMateria(rs.getInt("idMateria"));
                 insc.setAlumno(alum);
                 insc.setMateria(mate);
-                insc.setNota((int) rs.getDouble("nota"));
+                insc.setNota((double) rs.getDouble("nota"));
                 cursadas.add(insc);
             }
             ps.close();
@@ -184,7 +184,7 @@ public class InscripcionData {
     }
 
     public List<Alumno> averiguarAlumnosPorMateria(int idMateria) {
-        Alumno alumno = null;
+       
         ArrayList<Alumno> alumnosMate = new ArrayList<>();
 
         String sql = "SELECT a.idAlumno, a.dni, a.apellido, a.nombre  "
@@ -198,7 +198,7 @@ public class InscripcionData {
             ps.setInt(1, idMateria);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                alumno = new Alumno();
+               Alumno alumno = new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));

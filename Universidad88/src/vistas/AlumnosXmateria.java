@@ -116,7 +116,7 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jCMateriasActionPerformed
     private void cargarCBox() {
-        boolean act = true;
+       
         MateriaData materia = new MateriaData();
         List<Materia> lista = materia.listarMaterias();
 
