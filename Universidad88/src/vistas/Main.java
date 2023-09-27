@@ -259,9 +259,7 @@ public class Main extends javax.swing.JFrame {
 
             }
         });
-    
-        //AlumnoData ad = AlumnoData();
-        
+           
     
     }
 
