@@ -133,7 +133,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
         Alumno seleccionado = (Alumno) listaAlumnos.getSelectedItem();
 
         for (Inscripcion ins : ins.averiguarInscriptosPorIdAlumno(seleccionado.getIdAlumno())) {
-            tabla.addRow(new Object[]{ins.getidInscripcion(), ins.getMateria().getNombre(), ins.getNota()});
+            tabla.addRow(new Object[]{ins.getMateria().getIdMateria(),ins.getMateria().getNombre(),ins.getNota()});
         }
     }//GEN-LAST:event_listaAlumnosActionPerformed
 
@@ -150,7 +150,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
 
                 int idMat = Integer.parseInt(tabla.getValueAt(tablaNotas.getSelectedRow(), 0).toString());
 
-                Double nota = Double.parseDouble(tabla.getValueAt(tablaNotas.getSelectedRow(), 2).toString());
+                double nota = Double.parseDouble(tabla.getValueAt(tablaNotas.getSelectedRow(), 2).toString());
 
 
                 if (nota < 0 || nota > 10) {
