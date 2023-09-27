@@ -113,18 +113,22 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void jCMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCMateriasActionPerformed
-       
+
         Materia mat = (Materia) jCMaterias.getSelectedItem();
         Alumno alumno = new Alumno();
+
         List<Alumno> lista = ins.averiguarAlumnosPorMateria(mat.getIdMateria());
-        
+
         tabla.setRowCount(0);
-        for (Alumno ins : ins.averiguarAlumnosPorMateria(mat.getIdMateria())) {          
+        for (Alumno ins : ins.averiguarAlumnosPorMateria(mat.getIdMateria())) {
+
             tabla.addRow(new Object[]{ins.getIdAlumno(), ins.getDni(), ins.getApellido(), ins.getNombre()});
+
         }
     }//GEN-LAST:event_jCMateriasActionPerformed
+
     private void cargarCBox() {
-       
+
         MateriaData materia = new MateriaData();
         List<Materia> lista = materia.listarMaterias();
 
