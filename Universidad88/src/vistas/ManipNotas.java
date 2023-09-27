@@ -138,24 +138,36 @@ public class ManipNotas extends javax.swing.JInternalFrame {
 
     private void modificarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarNotaActionPerformed
         try {
+
             Alumno alum = (Alumno) listaAlumnos.getSelectedItem();
             int idAlum = alum.getIdAlumno();
-            int idMat = Integer.parseInt(tabla.getValueAt(tablaNotas.getSelectedRow(), 0).toString());
-            Double nota = Double.parseDouble(tabla.getValueAt(tablaNotas.getSelectedRow(), 2).toString());
+            int filaSelec = tablaNotas.getSelectedRow();
 
-            if (nota < 0 || nota > 10) {
-
-                JOptionPane.showMessageDialog(null, "Debe colocar una nota entre 0 - 10");
+            if (filaSelec == -1) {
+                JOptionPane.showMessageDialog(null, "Debe seleccionar una fila para continuar");
             } else {
-                
-                String[] list = {"Si", "No"};
-                int opcion = JOptionPane.showOptionDialog(null, "¿Confirma modificacion de la calificación?", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
-                
-                if (opcion == 0) {
-                    ins.modificarNota(idAlum, idMat, nota);
-                }else{
-                    JOptionPane.showMessageDialog(null, "La modificación ha sido cancelada");
+
+                int idMat = Integer.parseInt(tabla.getValueAt(tablaNotas.getSelectedRow(), 0).toString());
+
+                Double nota = Double.parseDouble(tabla.getValueAt(tablaNotas.getSelectedRow(), 2).toString());
+
+                JOptionPane.showMessageDialog(null, idAlum + " " + idMat + " " + nota);
+
+                if (nota < 0 || nota > 10) {
+
+                    JOptionPane.showMessageDialog(null, "Debe colocar una nota entre 0 - 10");
+                } else {
+
+                    String[] list = {"Si", "No"};
+                    int opcion = JOptionPane.showOptionDialog(null, "¿Confirma modificacion de la calificación?", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+
+                    if (opcion == 0) {
+                        ins.modificarNota(idAlum, idMat, nota);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "La modificación ha sido cancelada");
+                    }
                 }
+
             }
 
         } catch (NumberFormatException e) {
@@ -164,7 +176,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "El campo no puede estar vacio");
         }
 
-        listaAlumnosActionPerformed(evt);
+        //listaAlumnosActionPerformed(evt);
     }//GEN-LAST:event_modificarNotaActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
