@@ -197,18 +197,18 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void radioInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioInscriptasActionPerformed
-        borrarFilasTabla();
+        modelo.setRowCount(0);
         radioNoInscriptas.setSelected(false);
         cargarInscriptas();
-        jbAnular.setEnabled(false);
+        jbAnular.setEnabled(true);
         jbInscribir.setEnabled(false);
 
     }//GEN-LAST:event_radioInscriptasActionPerformed
 
     private void radioNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioNoInscriptasActionPerformed
-        borrarFilasTabla();
+        modelo.setRowCount(0);
         radioInscriptas.setSelected(false);
-        cargarInscriptas();
+        cargarNoInscriptas();
         jbAnular.setEnabled(false);
         jbInscribir.setEnabled(true);
 
@@ -295,7 +295,9 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     }
 
     private void cargarInscriptas() {
+        borrarFilasTabla();
         Alumno elegido = (Alumno) cboxAlumno.getSelectedItem();
+        
         List<Materia> lista = inscData.averiguarMateriasInscriptas(elegido.getIdAlumno());
 
         for (Materia m : lista) {
@@ -304,8 +306,9 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     }
 
     private void cargarNoInscriptas() {
-
+        borrarFilasTabla();
         Alumno elegido = (Alumno) cboxAlumno.getSelectedItem();
+        
         List<Materia> listaM = inscData.averiguarMateriasNoInscriptas(elegido.getIdAlumno());
         for (Materia m : listaM) {
             modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnio()});

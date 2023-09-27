@@ -106,6 +106,7 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void jCMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCMateriasActionPerformed
+       
         Materia mat = (Materia) jCMaterias.getSelectedItem();
         Alumno alumno = new Alumno();
 

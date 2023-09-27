@@ -141,7 +141,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
             Alumno alum = (Alumno) listaAlumnos.getSelectedItem();
             int idAlum = alum.getIdAlumno();
             int idMat = Integer.parseInt(tabla.getValueAt(tablaNotas.getSelectedRow(), 0).toString());
-            int nota = Integer.parseInt(tabla.getValueAt(tablaNotas.getSelectedRow(), 2).toString());
+            Double nota = Double.parseDouble(tabla.getValueAt(tablaNotas.getSelectedRow(), 2).toString());
 
             if (nota < 0 || nota > 10) {
 

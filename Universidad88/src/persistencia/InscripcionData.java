@@ -29,7 +29,7 @@ public class InscripcionData {
         String sql = "INSERT INTO inscripcion (nota, idAlumno, idMateria) VALUES (?,?,?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, insc.getNota());
+            ps.setDouble(1, insc.getNota());
             ps.setInt(2, insc.getAlumno().getIdAlumno());
             ps.setInt(3, insc.getMateria().getIdMateria());
             ps.executeUpdate();
@@ -138,9 +138,9 @@ public class InscripcionData {
     public List<Materia> averiguarMateriasInscriptas(int idAlumno) {
 
         ArrayList<Materia> materias = new ArrayList<>();
-        String sql = "SELECT inscripcion.idMateria, nombre, anio FROM inscripcion, materia WHERE inscripcion.idMateria = materia.idMateria AND inscripcion.idAlumno = ?;";
+        String sql = "SELECT inscripcion.idMateria, nombre, anio FROM inscripcion, materia WHERE inscripcion.idMateria = materia.idMateria AND inscripcion.idAlumno = ?";
         try {
-            PreparedStatement ps = con.prepareCall(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -162,10 +162,10 @@ public class InscripcionData {
     public List<Materia> averiguarMateriasNoInscriptas(int idAlumno) {
         ArrayList<Materia> materias = new ArrayList<>();
 
-        String sql = "SELECT * FROM materia WHERE estado = 1 AND idMateria not in (SELECT id MAteria FROM inscripcion WHERE id Alumno = ?)";
+        String sql = "SELECT * FROM materia WHERE estado = 1 AND idMateria NOT IN (SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
 
         try {
-            PreparedStatement ps = con.prepareCall(sql);
+            PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idAlumno);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
