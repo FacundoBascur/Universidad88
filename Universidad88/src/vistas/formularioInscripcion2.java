@@ -69,6 +69,12 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
             }
         });
 
+        cboxAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxAlumnoActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Seleccione un alumno/a:");
 
         jtMate.setModel(new javax.swing.table.DefaultTableModel(
@@ -224,7 +230,8 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Aún no se seleccionó ninguna fila de la tabla");
         }
-
+ radioInscriptas.setSelected(false);
+     borrarFilasTabla();
     }//GEN-LAST:event_jbAnularActionPerformed
 
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
@@ -232,8 +239,6 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
 
         if (filaElegida == -1) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar la materia a la que desea inscribirse.");
-        } else if(radioInscriptas.isSelected()==true) {
-         JOptionPane.showMessageDialog(this, "Debe seleccionar una materia a la que no esté inscripto.");
         
         } else {Alumno alum = (Alumno) cboxAlumno.getSelectedItem();
             int idMate = (Integer) modelo.getValueAt(filaElegida, 0);
@@ -243,7 +248,7 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
             Inscripcion insc = new Inscripcion(alum, mate, 0);
             inscData.guardarInscripcion(insc);
             borrarFilasTabla();
-        
+          radioNoInscriptas.setSelected(false);
     
     }//GEN-LAST:event_jbInscribirActionPerformed
 
@@ -251,6 +256,12 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void cboxAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxAlumnoActionPerformed
+        borrarFilasTabla();
+         radioNoInscriptas.setSelected(false);
+         radioInscriptas.setSelected(false);
+    }//GEN-LAST:event_cboxAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
