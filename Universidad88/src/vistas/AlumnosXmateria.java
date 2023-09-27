@@ -112,7 +112,7 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
 
         for (Alumno ins : ins.averiguarAlumnosPorMateria(mat.getIdMateria())) {
 
-            tabla.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+            tabla.addRow(new Object[]{ins.getIdAlumno(), ins.getDni(), ins.getApellido(), ins.getNombre()});
         }
     }//GEN-LAST:event_jCMateriasActionPerformed
     private void cargarCBox() {
