@@ -22,21 +22,19 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabla = new javax.swing.JTable();
         jCSeleccionar = new javax.swing.JComboBox<>();
         jBModificar = new javax.swing.JButton();
         jBBajaAlta = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 204));
         setClosable(true);
-        setTitle("Materias");
+        setMaximizable(true);
+        setTitle("                                            Listar y modificar materias");
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Listar Materias");
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
 
         //Agregue este metodo para que la columna id no sea editable
         jTabla = new javax.swing.JTable(){
@@ -44,6 +42,10 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
                 return columnIndex > 0 && columnIndex < 3;
             }
         };
+        jTabla.setBackground(new java.awt.Color(0, 102, 102));
+        jTabla.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        jTabla.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        jTabla.setForeground(new java.awt.Color(204, 204, 204));
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -56,24 +58,39 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
             }
         ));
         jTabla.setCellSelectionEnabled(true);
+        jTabla.setGridColor(new java.awt.Color(0, 0, 0));
+        jTabla.setSelectionBackground(new java.awt.Color(0, 102, 102));
+        jTabla.setSelectionForeground(new java.awt.Color(204, 204, 204));
         jTabla.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTabla);
 
+        jCSeleccionar.setBackground(new java.awt.Color(0, 102, 102));
+        jCSeleccionar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jCSeleccionar.setForeground(new java.awt.Color(204, 204, 204));
         jCSeleccionar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Todas", "Activas", "Inactivas" }));
+        jCSeleccionar.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jCSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCSeleccionarActionPerformed(evt);
             }
         });
 
+        jBModificar.setBackground(new java.awt.Color(0, 102, 102));
+        jBModificar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jBModificar.setForeground(new java.awt.Color(204, 204, 204));
         jBModificar.setText("Modificar");
+        jBModificar.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jBModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBModificarActionPerformed(evt);
             }
         });
 
+        jBBajaAlta.setBackground(new java.awt.Color(0, 102, 102));
+        jBBajaAlta.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jBBajaAlta.setForeground(new java.awt.Color(204, 204, 204));
         jBBajaAlta.setText("Baja/Alta");
+        jBBajaAlta.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jBBajaAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBajaAltaActionPerformed(evt);
@@ -87,47 +104,47 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(97, 97, 97)
+                        .addComponent(jCSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jCSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addGap(49, 49, 49)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jBModificar)
+                .addGap(100, 100, 100)
+                .addComponent(jBModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBBajaAlta)
-                .addGap(91, 91, 91))
+                .addComponent(jBBajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34)
+                .addGap(44, 44, 44)
                 .addComponent(jCSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBModificar)
-                    .addComponent(jBBajaAlta))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(jBBajaAlta)
+                    .addComponent(jBModificar))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -258,7 +275,6 @@ jCSeleccionarActionPerformed(evt);
     private javax.swing.JButton jBBajaAlta;
     private javax.swing.JButton jBModificar;
     private javax.swing.JComboBox<String> jCSeleccionar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTabla;

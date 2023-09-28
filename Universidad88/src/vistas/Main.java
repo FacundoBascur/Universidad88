@@ -60,6 +60,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar2.setBackground(new java.awt.Color(255, 153, 102));
         jMenuBar2.setBorder(null);
+        jMenuBar2.setName(""); // NOI18N
 
         jMenu3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu3.setText("Alumno");
@@ -99,7 +100,7 @@ public class Main extends javax.swing.JFrame {
         jMFormularioMateria.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jMFormularioMateria.setForeground(new java.awt.Color(0, 0, 0));
         jMFormularioMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
-        jMFormularioMateria.setText("Formulario de materia");
+        jMFormularioMateria.setText("Registrar y buscar materias");
         jMFormularioMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMFormularioMateriaActionPerformed(evt);
@@ -111,7 +112,7 @@ public class Main extends javax.swing.JFrame {
         jMListarMaterias.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jMListarMaterias.setForeground(new java.awt.Color(0, 0, 0));
         jMListarMaterias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
-        jMListarMaterias.setText("Listar Materias");
+        jMListarMaterias.setText("Listar y modificar materias");
         jMListarMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMListarMateriasActionPerformed(evt);

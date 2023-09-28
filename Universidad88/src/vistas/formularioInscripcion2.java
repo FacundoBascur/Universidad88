@@ -42,7 +42,6 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
 
         escritorio2 = new javax.swing.JDesktopPane();
         radioNoInscriptas = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
         radioInscriptas = new javax.swing.JRadioButton();
         cboxAlumno = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -53,28 +52,47 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jbSalir = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 204));
+        setTitle("                                                         Formulario de Inscripción");
+
+        escritorio2.setBackground(new java.awt.Color(204, 204, 204));
+        escritorio2.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
+        escritorio2.setForeground(new java.awt.Color(204, 204, 204));
+
+        radioNoInscriptas.setBackground(new java.awt.Color(0, 102, 102));
+        radioNoInscriptas.setForeground(new java.awt.Color(204, 204, 204));
         radioNoInscriptas.setText("Materias no inscriptas");
+        radioNoInscriptas.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        radioNoInscriptas.setBorderPainted(true);
         radioNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioNoInscriptasActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Formulario de Inscripción");
-
+        radioInscriptas.setBackground(new java.awt.Color(0, 102, 102));
+        radioInscriptas.setForeground(new java.awt.Color(204, 204, 204));
         radioInscriptas.setText("Materias inscriptas");
+        radioInscriptas.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        radioInscriptas.setBorderPainted(true);
         radioInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioInscriptasActionPerformed(evt);
             }
         });
 
+        cboxAlumno.setBackground(new java.awt.Color(0, 102, 102));
+        cboxAlumno.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        cboxAlumno.setForeground(new java.awt.Color(204, 204, 204));
+        cboxAlumno.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         cboxAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxAlumnoActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Seleccione un alumno/a:");
 
         //Agregue este metodo para que la columna id no sea editable
@@ -83,6 +101,10 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
                 return false;
             }
         };
+        jtMate.setBackground(new java.awt.Color(0, 102, 102));
+        jtMate.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        jtMate.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        jtMate.setForeground(new java.awt.Color(204, 204, 204));
         jtMate.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -94,17 +116,28 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtMate.setGridColor(new java.awt.Color(0, 0, 0));
+        jtMate.setSelectionBackground(new java.awt.Color(0, 102, 102));
+        jtMate.setSelectionForeground(new java.awt.Color(204, 204, 204));
         jtMate.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jtMate);
 
+        jbAnular.setBackground(new java.awt.Color(0, 102, 102));
+        jbAnular.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jbAnular.setForeground(new java.awt.Color(204, 204, 204));
         jbAnular.setText("Anular inscripción");
+        jbAnular.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jbAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAnularActionPerformed(evt);
             }
         });
 
+        jbInscribir.setBackground(new java.awt.Color(0, 102, 102));
+        jbInscribir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jbInscribir.setForeground(new java.awt.Color(204, 204, 204));
         jbInscribir.setText("Inscribir");
+        jbInscribir.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jbInscribir.setEnabled(false);
         jbInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,9 +145,15 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Listado de Materias");
 
+        jbSalir.setBackground(new java.awt.Color(0, 102, 102));
+        jbSalir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jbSalir.setForeground(new java.awt.Color(204, 204, 204));
         jbSalir.setText("Salir");
+        jbSalir.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
@@ -122,7 +161,6 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
         });
 
         escritorio2.setLayer(radioNoInscriptas, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorio2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio2.setLayer(radioInscriptas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio2.setLayer(cboxAlumno, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -136,46 +174,40 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
         escritorio2.setLayout(escritorio2Layout);
         escritorio2Layout.setHorizontalGroup(
             escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorio2Layout.createSequentialGroup()
-                .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(escritorio2Layout.createSequentialGroup()
-                        .addContainerGap(41, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(cboxAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))
-                    .addGroup(escritorio2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jbInscribir)
-                        .addGap(72, 72, 72)
-                        .addComponent(jbAnular)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbSalir)))
-                .addGap(41, 41, 41))
             .addGroup(escritorio2Layout.createSequentialGroup()
                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(escritorio2Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(escritorio2Layout.createSequentialGroup()
-                                .addComponent(radioInscriptas)
-                                .addGap(67, 67, 67)
-                                .addComponent(radioNoInscriptas))))
                     .addGroup(escritorio2Layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(jLabel3))
                     .addGroup(escritorio2Layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(63, 63, 63)
+                        .addComponent(radioInscriptas)
+                        .addGap(90, 90, 90)
+                        .addComponent(radioNoInscriptas)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(escritorio2Layout.createSequentialGroup()
+                .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorio2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cboxAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(escritorio2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorio2Layout.createSequentialGroup()
+                                .addComponent(jbInscribir, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(95, 95, 95)
+                                .addComponent(jbAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(41, 41, 41))
         );
         escritorio2Layout.setVerticalGroup(
             escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorio2Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(47, 47, 47)
                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cboxAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -186,8 +218,8 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addGroup(escritorio2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbInscribir)
                     .addComponent(jbAnular)
@@ -276,7 +308,6 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Alumno> cboxAlumno;
     private javax.swing.JDesktopPane escritorio2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;

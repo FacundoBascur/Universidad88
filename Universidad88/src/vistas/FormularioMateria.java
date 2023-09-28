@@ -35,7 +35,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jTextField4.setText("jTextField1");
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setTitle("                                                                  Gestión de Materias");
+        setTitle("                                                                  Registro de Materias");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));

@@ -33,11 +33,16 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
         salir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
+        setTitle("                                    Alumnos por materia");
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Seleccione una materia");
 
+        jCMaterias.setBackground(new java.awt.Color(0, 102, 102));
+        jCMaterias.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jCMaterias.setForeground(new java.awt.Color(0, 0, 0));
+        jCMaterias.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         jCMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCMateriasActionPerformed(evt);
@@ -50,6 +55,10 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
                 return columnIndex > 4;
             }
         };
+        tablaConsulta.setBackground(new java.awt.Color(0, 102, 102));
+        tablaConsulta.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        tablaConsulta.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        tablaConsulta.setForeground(new java.awt.Color(204, 204, 204));
         tablaConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -61,11 +70,17 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaConsulta.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaConsulta.setSelectionBackground(new java.awt.Color(0, 102, 102));
+        tablaConsulta.setSelectionForeground(new java.awt.Color(204, 204, 204));
         tablaConsulta.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tablaConsulta);
 
+        salir.setBackground(new java.awt.Color(0, 102, 102));
+        salir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        salir.setForeground(new java.awt.Color(204, 204, 204));
         salir.setText("Salir");
-        salir.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        salir.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
@@ -80,7 +95,7 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jCMaterias, 0, 201, Short.MAX_VALUE)
+                .addComponent(jCMaterias, 0, 193, Short.MAX_VALUE)
                 .addGap(21, 21, 21))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -98,11 +113,11 @@ public class AlumnosXmateria extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jCMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

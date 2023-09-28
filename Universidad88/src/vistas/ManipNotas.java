@@ -31,12 +31,14 @@ public class ManipNotas extends javax.swing.JInternalFrame {
         salir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
+        setTitle("\t\t                                                 Manipulación de notas");
 
+        modificarNota.setBackground(new java.awt.Color(0, 102, 102));
         modificarNota.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        modificarNota.setForeground(new java.awt.Color(0, 0, 0));
+        modificarNota.setForeground(new java.awt.Color(204, 204, 204));
         modificarNota.setText("Modificar");
-        modificarNota.setBorder(null);
-        modificarNota.setBorderPainted(false);
+        modificarNota.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         modificarNota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarNotaActionPerformed(evt);
@@ -47,8 +49,9 @@ public class ManipNotas extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Seleccione un Alumno");
 
-        listaAlumnos.setBackground(new java.awt.Color(255, 255, 255));
-        listaAlumnos.setForeground(new java.awt.Color(0, 0, 0));
+        listaAlumnos.setBackground(new java.awt.Color(0, 102, 102));
+        listaAlumnos.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        listaAlumnos.setForeground(new java.awt.Color(204, 204, 204));
         listaAlumnos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         listaAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +65,10 @@ public class ManipNotas extends javax.swing.JInternalFrame {
                 return columnIndex > 1;
             }
         };
+        tablaNotas.setBackground(new java.awt.Color(0, 102, 102));
+        tablaNotas.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        tablaNotas.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        tablaNotas.setForeground(new java.awt.Color(204, 204, 204));
         tablaNotas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -74,11 +81,17 @@ public class ManipNotas extends javax.swing.JInternalFrame {
             }
         ));
         tablaNotas.setFocusable(false);
+        tablaNotas.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaNotas.setSelectionBackground(new java.awt.Color(0, 102, 102));
+        tablaNotas.setSelectionForeground(new java.awt.Color(204, 204, 204));
         tablaNotas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tablaNotas);
 
+        salir.setBackground(new java.awt.Color(0, 102, 102));
+        salir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        salir.setForeground(new java.awt.Color(204, 204, 204));
         salir.setText("Salir");
-        salir.setBorder(null);
+        salir.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
@@ -94,7 +107,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(modificarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,7 +134,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(modificarNota, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();

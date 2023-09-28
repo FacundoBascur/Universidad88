@@ -10,6 +10,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
       </Properties>
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu3">
@@ -94,7 +95,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Imagenes/seleccionar.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Formulario de materia"/>
+                <Property name="text" type="java.lang.String" value="Registrar y buscar materias"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMFormularioMateriaActionPerformed"/>
@@ -114,7 +115,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Imagenes/seleccionar.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Listar Materias"/>
+                <Property name="text" type="java.lang.String" value="Listar y modificar materias"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMListarMateriasActionPerformed"/>
