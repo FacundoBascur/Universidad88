@@ -322,6 +322,7 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     //para ir agregando al cBox
     private void cargarAlumnos() {
         for (Alumno item : listaA) {
+            if(item.isActivo()==true)
             cboxAlumno.addItem(item);
         }
     }
