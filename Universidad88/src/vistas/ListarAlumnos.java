@@ -31,6 +31,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         salir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
         setTitle("                                                         Busqueda de Alumnos");
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(510, 330));
@@ -43,6 +44,10 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 return columnIndex > 0 && columnIndex < 5;
             }
         };
+        tablaAlumnos.setBackground(new java.awt.Color(0, 102, 102));
+        tablaAlumnos.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+        tablaAlumnos.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        tablaAlumnos.setForeground(new java.awt.Color(204, 204, 204));
         tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -56,54 +61,65 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         ));
         tablaAlumnos.setCellSelectionEnabled(true);
         tablaAlumnos.setFocusable(false);
+        tablaAlumnos.setGridColor(new java.awt.Color(0, 0, 0));
+        tablaAlumnos.setSelectionBackground(new java.awt.Color(0, 102, 102));
         tablaAlumnos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tablaAlumnos);
 
+        jtidentificador.setBackground(new java.awt.Color(0, 102, 102));
+        jtidentificador.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jtidentificador.setForeground(new java.awt.Color(204, 204, 204));
+        jtidentificador.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
+
+        Modificar.setBackground(new java.awt.Color(0, 102, 102));
         Modificar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        Modificar.setForeground(new java.awt.Color(0, 0, 0));
+        Modificar.setForeground(new java.awt.Color(204, 204, 204));
         Modificar.setText("Modificar");
-        Modificar.setBorder(null);
-        Modificar.setBorderPainted(false);
+        Modificar.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         Modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModificarActionPerformed(evt);
             }
         });
 
+        opciones.setBackground(new java.awt.Color(0, 102, 102));
+        opciones.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        opciones.setForeground(new java.awt.Color(204, 204, 204));
         opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "< Seleccionar >", "Por ID", "Por DNI", "Todos" }));
+        opciones.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         opciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opcionesActionPerformed(evt);
             }
         });
 
+        buscar.setBackground(new java.awt.Color(0, 102, 102));
         buscar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        buscar.setForeground(new java.awt.Color(0, 0, 0));
+        buscar.setForeground(new java.awt.Color(204, 204, 204));
         buscar.setText("Buscar");
-        buscar.setBorder(null);
-        buscar.setBorderPainted(false);
+        buscar.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarActionPerformed(evt);
             }
         });
 
+        bajaAlta.setBackground(new java.awt.Color(0, 102, 102));
         bajaAlta.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        bajaAlta.setForeground(new java.awt.Color(0, 0, 0));
+        bajaAlta.setForeground(new java.awt.Color(204, 204, 204));
         bajaAlta.setText("Baja/Alta");
-        bajaAlta.setBorder(null);
-        bajaAlta.setBorderPainted(false);
+        bajaAlta.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         bajaAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bajaAltaActionPerformed(evt);
             }
         });
 
-        salir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        salir.setForeground(new java.awt.Color(0, 0, 0));
-        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
-        salir.setBorder(null);
-        salir.setBorderPainted(false);
+        salir.setBackground(new java.awt.Color(0, 102, 102));
+        salir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        salir.setForeground(new java.awt.Color(204, 204, 204));
+        salir.setText("Salir");
+        salir.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
@@ -117,24 +133,25 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(jtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)))
-                .addContainerGap())
+                        .addGap(18, 18, 18)
+                        .addComponent(jtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(26, 26, 26)
                 .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
+                .addGap(110, 110, 110)
                 .addComponent(bajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,16 +160,15 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(opciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtidentificador, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(salir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bajaAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         opciones.getAccessibleContext().setAccessibleDescription("");

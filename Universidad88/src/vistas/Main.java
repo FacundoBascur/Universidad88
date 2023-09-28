@@ -30,39 +30,44 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        escritorio.setBackground(new java.awt.Color(102, 102, 255));
-        escritorio.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
+        escritorio.setBackground(new java.awt.Color(0, 102, 102));
+        escritorio.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(255, 153, 102)));
         escritorio.setPreferredSize(new java.awt.Dimension(1000, 700));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 981, Short.MAX_VALUE)
+            .addGap(0, 993, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 692, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1001, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jMenuBar2.setBackground(new java.awt.Color(204, 204, 204));
+        jMenuBar2.setBackground(new java.awt.Color(255, 153, 102));
+        jMenuBar2.setBorder(null);
 
+        jMenu3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu3.setText("Alumno");
+        jMenu3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
+        registroAlumnos.setBackground(new java.awt.Color(255, 153, 102));
+        registroAlumnos.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        registroAlumnos.setForeground(new java.awt.Color(0, 0, 0));
         registroAlumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
         registroAlumnos.setText("Registrar Alumnos");
         registroAlumnos.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +77,9 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu3.add(registroAlumnos);
 
+        busquedaModificiacion.setBackground(new java.awt.Color(255, 153, 102));
+        busquedaModificiacion.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        busquedaModificiacion.setForeground(new java.awt.Color(0, 0, 0));
         busquedaModificiacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
         busquedaModificiacion.setText("Búsqueda y modificación de Alumnos");
         busquedaModificiacion.addActionListener(new java.awt.event.ActionListener() {
@@ -83,8 +91,13 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu3);
 
+        jMenu4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu4.setText("Materia");
+        jMenu4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
+        jMFormularioMateria.setBackground(new java.awt.Color(255, 153, 102));
+        jMFormularioMateria.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jMFormularioMateria.setForeground(new java.awt.Color(0, 0, 0));
         jMFormularioMateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
         jMFormularioMateria.setText("Formulario de materia");
         jMFormularioMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +107,9 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu4.add(jMFormularioMateria);
 
+        jMListarMaterias.setBackground(new java.awt.Color(255, 153, 102));
+        jMListarMaterias.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        jMListarMaterias.setForeground(new java.awt.Color(0, 0, 0));
         jMListarMaterias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
         jMListarMaterias.setText("Listar Materias");
         jMListarMaterias.addActionListener(new java.awt.event.ActionListener() {
@@ -105,8 +121,13 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu4);
 
+        jMenu5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu5.setText("Administración");
+        jMenu5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
+        formularioInscripcion2.setBackground(new java.awt.Color(255, 153, 102));
+        formularioInscripcion2.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        formularioInscripcion2.setForeground(new java.awt.Color(0, 0, 0));
         formularioInscripcion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
         formularioInscripcion2.setText("Manejo de inscripciones");
         formularioInscripcion2.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +137,9 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu5.add(formularioInscripcion2);
 
+        maniNotas.setBackground(new java.awt.Color(255, 153, 102));
+        maniNotas.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        maniNotas.setForeground(new java.awt.Color(0, 0, 0));
         maniNotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
         maniNotas.setText("Manipulación de notas");
         maniNotas.addActionListener(new java.awt.event.ActionListener() {
@@ -127,8 +151,13 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu5);
 
+        jMenu6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMenu6.setText("Consultas");
+        jMenu6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
+        alumXmateria.setBackground(new java.awt.Color(255, 153, 102));
+        alumXmateria.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        alumXmateria.setForeground(new java.awt.Color(0, 0, 0));
         alumXmateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/seleccionar.png"))); // NOI18N
         alumXmateria.setText("Alumnos por materia");
         alumXmateria.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +169,9 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar2.add(jMenu6);
 
+        jMSalir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jMSalir.setText("Salir");
+        jMSalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMSalirMouseClicked(evt);
