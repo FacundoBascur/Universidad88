@@ -180,22 +180,26 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
                 String nom = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 3).toString();
                 Date fecha = Date.valueOf(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 4).toString());
 
-                String[] list = {"Si", "No"};
-                int opcion = JOptionPane.showOptionDialog(null, " Confirmar modificacion", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); // muestra un cuadro de dialogo para confirmar la modificacion del alumno devuelve 0 o 1 dependiendo la opcion que se elija
+                if (verificarApellido(ap)||verificarNombre(nom)||ap.isEmpty()||nom.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No se admiten numeros y/o casilleros vacios en Apellido y Nombre");
+                }else{
+                    
+                    String[] list = {"Si", "No"};
+                    int opcion = JOptionPane.showOptionDialog(null, " Confirmar modificacion", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); // muestra un cuadro de dialogo para confirmar la modificacion del alumno devuelve 0 o 1 dependiendo la opcion que se elija
 
-                if (opcion == 0) {
-                    alumno.modificarAlumno(id, dni, ap, nom, fecha);
+                    if (opcion == 0) {
+                        alumno.modificarAlumno(id, dni, ap, nom, fecha);
 
-                } else {
-                    JOptionPane.showMessageDialog(this, "Modificacion cancelada");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Modificacion cancelada");
+                    }
+                    
                 }
-
             }
         } catch (NumberFormatException | NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Error en la modificacion - el DNI colocado no es correcto, excede limites de digitos");
         }
 
-      
 
     }//GEN-LAST:event_ModificarActionPerformed
 
@@ -262,7 +266,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
             } catch (NumberFormatException | NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "Error - base de datos vacia");
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una opción valida para continuar");
         }
@@ -275,7 +279,7 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
         if (tablaAlumnos.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un alumno para continuar");
         } else {
-          
+
             int dni = Integer.parseInt(tabla.getValueAt(tablaAlumnos.getSelectedRow(), 1).toString());
             String ap = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 2).toString();
             String nom = tabla.getValueAt(tablaAlumnos.getSelectedRow(), 3).toString();
@@ -313,11 +317,29 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
     private void limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarActionPerformed
         jtidentificador.setText("");
     }//GEN-LAST:event_limpiarActionPerformed
- 
-    private void armarTabla(){
+
+    private void armarTabla() {
         String[] titulos = new String[]{"ID", "DNI", "Apellido", "Nombre", "Fecha", "Estado"};
         tabla.setColumnIdentifiers(titulos);
         tablaAlumnos.setModel(tabla);
+    }
+
+    public boolean verificarApellido(String cadena) {
+        try {
+            Integer.parseInt(cadena);  
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    
+    public boolean verificarNombre(String cadena2) {
+        try {
+            Integer.parseInt(cadena2);  
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
