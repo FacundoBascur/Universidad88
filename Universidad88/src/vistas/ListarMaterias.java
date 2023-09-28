@@ -154,7 +154,7 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
                 model.setRowCount(0);
 
                 List<Materia> listaMaterias = materia.listarMaterias();
-                for (Materia mat : listaMaterias) {                   
+                for (Materia mat : listaMaterias) {
                     if (mat.isActivo() == true) {
                         model.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), mat.getAnio(), mat.isActivo()});
                     }
@@ -182,15 +182,17 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
         try {
             if (jTabla.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(null, "No se ha realizado ninguna modificación.");
-
-            
+jCSeleccionarActionPerformed(evt);
             } else {
 
                 //En estas variables se guardan los datos obtenidos al seleccionar una fila de la tabla. "tabla.getValueAt(jTabla.getSelectedRow --> selecciona fila"
                 int id = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 0).toString());
                 String nombre = model.getValueAt(jTabla.getSelectedRow(), 1).toString();
                 int anio = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 2).toString());
-
+                if (verificarNombre(nombre) == true) {
+                    JOptionPane.showMessageDialog(this, "El campo nombre no debe contener números.");
+             jCSeleccionarActionPerformed(evt);
+                }else{
                 String[] list = {"Si", "No"};
                 int opcion = JOptionPane.showOptionDialog(null, " Confirmar modificacion", "", 0, JOptionPane.QUESTION_MESSAGE, null, list, ""); // muestra un cuadro de dialogo para confirmar la modificacion de la materia devuelve 0 o 1 dependiendo la opcion que se elija
 
@@ -200,55 +202,58 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
                 } else {
                     JOptionPane.showMessageDialog(this, "Modificacion cancelada");
                 }
-
+              jCSeleccionar.setSelectedItem("<Seleccionar>");
+            model.setRowCount(0);
+                }
+                
+           
             }
         } catch (NumberFormatException | NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Error, se ingresó un tipo de formato incorrecto.");
-
-            jCSeleccionar.setSelectedItem("<Seleccionar>");
-            model.setRowCount(0);
+            JOptionPane.showMessageDialog(null, "El campo año no debe contener letras.");
+jCSeleccionarActionPerformed(evt);
         }
-
+// jCSeleccionar.setSelectedItem("<Seleccionar>");
+           // model.setRowCount(0);
     }//GEN-LAST:event_jBModificarActionPerformed
 
     private void jBBajaAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBajaAltaActionPerformed
-      
-            if (jTabla.getSelectedRow() == -1) {
-                JOptionPane.showMessageDialog(null, "No se ha realizado ninguna modificación.");
-            } else {
 
-                //En estas variables se guardan los datos obtenidos al seleccionar una fila de la tabla. "tabla.getValueAt(jTabla.getSelectedRow --> selecciona fila"
-                int id = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 0).toString());
-                String nombre = model.getValueAt(jTabla.getSelectedRow(), 1).toString();
-                int anio = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 2).toString());
-                boolean estado = Boolean.parseBoolean(model.getValueAt(jTabla.getSelectedRow(), 3).toString());
+        if (jTabla.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null, "No se ha realizado ninguna modificación.");
+        } else {
 
-                if (estado) {
-                    String[] list = {"Si", "No"};
-                    int opcion = JOptionPane.showOptionDialog(null, "Confirmar Baja de Materia: \n " + nombre,"", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+            //En estas variables se guardan los datos obtenidos al seleccionar una fila de la tabla. "tabla.getValueAt(jTabla.getSelectedRow --> selecciona fila"
+            int id = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 0).toString());
+            String nombre = model.getValueAt(jTabla.getSelectedRow(), 1).toString();
+            int anio = Integer.parseInt(model.getValueAt(jTabla.getSelectedRow(), 2).toString());
+            boolean estado = Boolean.parseBoolean(model.getValueAt(jTabla.getSelectedRow(), 3).toString());
 
-                    if (opcion == 0) {
-                       materia.bajaMateria(id);
-                      
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Baja cancelada");
-                    }
+            if (estado) {
+                String[] list = {"Si", "No"};
+                int opcion = JOptionPane.showOptionDialog(null, "Confirmar Baja de Materia: \n " + nombre, "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+
+                if (opcion == 0) {
+                    materia.bajaMateria(id);
+
                 } else {
-                    String[] list = {"Si", "No"};
-                    int opcion = JOptionPane.showOptionDialog(null, "Confirmar Alta de Materia: \n" + nombre, "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
+                    JOptionPane.showMessageDialog(this, "Baja cancelada");
+                }
+            } else {
+                String[] list = {"Si", "No"};
+                int opcion = JOptionPane.showOptionDialog(null, "Confirmar Alta de Materia: \n" + nombre, "", 0, JOptionPane.QUESTION_MESSAGE, null, list, "");
 
-                    if (opcion == 0) {
-                     materia.altaMateria(id);
-                      
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Alta cancelada");
-                    }
-                } 
+                if (opcion == 0) {
+                    materia.altaMateria(id);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Alta cancelada");
+                }
+            }
     }//GEN-LAST:event_jBBajaAltaActionPerformed
-   jCSeleccionar.setSelectedItem("<Seleccionar>");
-            model.setRowCount(0);
+        jCSeleccionar.setSelectedItem("<Seleccionar>");
+        model.setRowCount(0);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBajaAlta;
     private javax.swing.JButton jBModificar;
@@ -266,5 +271,14 @@ public class ListarMaterias extends javax.swing.JInternalFrame {
         model.addColumn("Año");
         model.addColumn("Estado");
 
+    }
+
+    public boolean verificarNombre(String cadena2) {
+        try {
+            Integer.parseInt(cadena2);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

@@ -245,41 +245,61 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
 
     private void BGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGuardarActionPerformed
-      try{
-                if (!jTId.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "El campo Id debe estar vacío.");
-                } else if (jTNombre.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "El campo Nombre no puede estar vacío.");
-                } else if (jTAnio.getText().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "El campo Año no puede estar vacío.");
-                }/*else if(Integer.parseInt(jTNombre.getText())==1){
-       JOptionPane.showMessageDialog(null, "El campo Nombre no puede ser numérico.");
-       }else if(jTAnio.getText()==""){
-       JOptionPane.showMessageDialog(null, "El campo Año debe ser numérico.");
-       }*/ else if (jTAnio.getText().length() > 1) {
-                    JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
-                } else {
-
-                    materia.guardarMateria(new Materia(jTNombre.getText(), Integer.parseInt(jTAnio.getText()), CActivo2.isSelected()));
-
-                    jTId.setText("");
-                    jTNombre.setText("");
-                    jTAnio.setText("");
-                    CActivo2.setSelected(false);
-
-                }
-            } catch (NumberFormatException | IndexOutOfBoundsException | NullPointerException p) {
-                JOptionPane.showMessageDialog(null, "Error al registrar, campos en formato incorrecto."); 
-
-    }//GEN-LAST:event_BGuardarActionPerformed
-
+        try {
+            if (!jTId.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El campo Id debe estar vacío.");
+    jTId.setText("");
+            } else if (jTNombre.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El campo Nombre no puede estar vacío.");
+            } else if (jTAnio.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "El campo Año no puede estar vacío.");
+            } else if (verificarAnio(jTAnio.getText()) == false) {
+                JOptionPane.showMessageDialog(null, "El campo Año debe ser numérico.");
+   jTAnio.setText("");
+            } else if (verificarNombre(jTNombre.getText()) == true) {
+                JOptionPane.showMessageDialog(null, "El campo Nombre no puede ser numérico.");
+  jTNombre.setText("");
+            } else if (jTAnio.getText().length() > 1) {
+                JOptionPane.showMessageDialog(null, "El campo Año debe contener un dígito.");
+jTAnio.setText("");
+            } else {
+                materia.guardarMateria(new Materia(jTNombre.getText(), Integer.parseInt(jTAnio.getText()), CActivo2.isSelected()));
             jTId.setText("");
             jTNombre.setText("");
             jTAnio.setText("");
             CActivo2.setSelected(false);
-        
+            
+            }
 
-    } 
+          
+
+        } catch (NumberFormatException | IndexOutOfBoundsException | NullPointerException p) {
+            JOptionPane.showMessageDialog(null, "Error al registrar, campos en formato incorrecto.");
+
+    }//GEN-LAST:event_BGuardarActionPerformed
+       
+
+    }
+
+    public boolean verificarAnio(String cadena) {
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public boolean verificarNombre(String cadena2) {
+        try {
+            Integer.parseInt(cadena2);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button BBuscar;
     private java.awt.Button BGuardar;

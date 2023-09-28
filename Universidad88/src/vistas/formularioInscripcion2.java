@@ -77,6 +77,12 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione un alumno/a:");
 
+        //Agregue este metodo para que la columna id no sea editable
+        jtMate = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int columnIndex){
+                return false;
+            }
+        };
         jtMate.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -88,6 +94,7 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtMate.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jtMate);
 
         jbAnular.setText("Anular inscripción");
@@ -261,6 +268,8 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
         borrarFilasTabla();
          radioNoInscriptas.setSelected(false);
          radioInscriptas.setSelected(false);
+          jbInscribir.setEnabled(false);
+            jbAnular.setEnabled(false);
     }//GEN-LAST:event_cboxAlumnoActionPerformed
 
 
@@ -326,9 +335,6 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
         }
 
     }
-    /*  private void cargarTodas(){
-    
-        for(Materia mat: mateData.listarMaterias()){
-        modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(), mat.isActivo()});*/
+   
 
 }

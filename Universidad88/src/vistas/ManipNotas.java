@@ -74,6 +74,7 @@ public class ManipNotas extends javax.swing.JInternalFrame {
             }
         ));
         tablaNotas.setFocusable(false);
+        tablaNotas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tablaNotas);
 
         salir.setText("Salir");
