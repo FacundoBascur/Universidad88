@@ -209,6 +209,9 @@ public class ListarAlumnos extends javax.swing.JInternalFrame {
             }
         } catch (NumberFormatException | NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Error en la modificacion - el DNI colocado no es correcto, excede limites de digitos");
+        } catch (IllegalArgumentException e){
+            JOptionPane.showMessageDialog(null, "Error en el formato de fecha");
+            
         }
 
 
