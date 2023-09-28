@@ -348,10 +348,9 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
 
     private void cargarInscriptas() {
         borrarFilasTabla();
-        Alumno elegido = (Alumno) cboxAlumno.getSelectedItem();
-        
+        Alumno elegido = (Alumno) cboxAlumno.getSelectedItem();    
         List<Materia> lista = inscData.averiguarMateriasInscriptas(elegido.getIdAlumno());
-
+    //rellena tabla a través del arreglo de objeto
         for (Materia m : lista) {
             modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnio()});
         }
@@ -360,7 +359,7 @@ public class formularioInscripcion2 extends javax.swing.JInternalFrame {
     private void cargarNoInscriptas() {
         borrarFilasTabla();
         Alumno elegido = (Alumno) cboxAlumno.getSelectedItem();
-        
+    //rellena tabla a través del arreglo de objeto
         List<Materia> listaM = inscData.averiguarMateriasNoInscriptas(elegido.getIdAlumno());
         for (Materia m : listaM) {
             modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnio()});

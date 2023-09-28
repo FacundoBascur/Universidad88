@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 
 public class InscripcionData {
 
+    // conexión y atributos
     private Connection con = null;
     private MateriaData mateData = new MateriaData();
     private AlumnoData alumData = new AlumnoData();
@@ -21,7 +22,8 @@ public class InscripcionData {
     public InscripcionData() {
         con = Conexion.getConexion();
     }
-
+    
+    // recibe una inscripción por parametro y la almacena en la entidad inscripcion
     public void guardarInscripcion(Inscripcion insc) {
 
         String sql = "INSERT INTO inscripcion (nota, idAlumno, idMateria) VALUES (?,?,?)";
@@ -43,7 +45,8 @@ public class InscripcionData {
             JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla Inscripción. Vuelva a intentar, por favor.");
         }
     }
-
+    
+    // método usado en el formulario de vista de manipulación de notas
     public void modificarNota(int idAlumno, int idMateria, double nota) {
 
         String sql = "UPDATE inscripcion SET nota = ? WHERE idAlumno = ? AND idMateria = ?";
@@ -62,7 +65,7 @@ public class InscripcionData {
         }
     }
 
-    //para borrar una fila completa, todas las inscripciones que NO estén borradas, están ACTIVAS
+    // usado en formularioInscripcion2, para borrar una fila completa, todas las inscripciones que NO estén borradas, están ACTIVAS
     public void borrarInscripcion(int idAlumno, int idMateria) {
 
         String sql = "DELETE FROM inscripcion WHERE idAlumno = ? and idMateria = ?";
@@ -81,7 +84,7 @@ public class InscripcionData {
         }
     }
 
-    //recordamos que no es necesario destacar el estado "activo = 1", porque los mismos son los que no fueron eliminados por el método anterior
+    // retorna una lista con TODAS las inscripciones. Recordamos que no es necesario destacar el estado "activo = 1", porque los mismos son los que NO fueron eliminados por el método borrarInscripcion
     public List<Inscripcion> averiguarInscriptos() {
         ArrayList<Inscripcion> cursadas = new ArrayList<>();
         String sql = "SELECT * FROM inscripcion";
@@ -106,7 +109,8 @@ public class InscripcionData {
 
         return cursadas;
     }
-
+    
+    // principal diferencia con método averiguarInscriptos: WHERE en la consulta SQL, con parámetro comodín para traer inscripción a través del ID del alumno
     public List<Inscripcion> averiguarInscriptosPorIdAlumno(int idAlumno) {
         ArrayList<Inscripcion> cursadas = new ArrayList<>();
         String sql = "SELECT * FROM inscripcion WHERE idAlumno = ?";
@@ -132,7 +136,8 @@ public class InscripcionData {
 
         return cursadas;
     }
-
+    
+    // muestra lista de materias en las que un alumno está inscripto a través de su ID (parámetro comodin) y usando AND para unir entidades inscripcion + materia
     public List<Materia> averiguarMateriasInscriptas(int idAlumno) {
 
         ArrayList<Materia> materias = new ArrayList<>();
@@ -156,7 +161,8 @@ public class InscripcionData {
 
         return materias;
     }
-
+    
+    // muestra lista de materias activas y que NO figuren como cursadas en entidad Inscripcion
     public List<Materia> averiguarMateriasNoInscriptas(int idAlumno) {
         ArrayList<Materia> materias = new ArrayList<>();
 
@@ -180,7 +186,8 @@ public class InscripcionData {
         }
         return materias;
     }
-
+    
+    // devuelve lista de alumnos pasando ID por parámetro (consulta SQL incluye true en activo)
     public List<Alumno> averiguarAlumnosPorMateria(int idMateria) {
        
         ArrayList<Alumno> alumnosMate = new ArrayList<>();
