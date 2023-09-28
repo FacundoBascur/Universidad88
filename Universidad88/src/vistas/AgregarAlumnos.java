@@ -68,7 +68,7 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
         jLabel6.setText("Nombre");
 
         jbGuardar.setForeground(new java.awt.Color(0, 0, 0));
-        jbGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\verificar .png")); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/verificar .png"))); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.setBorder(null);
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
 
         salir.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         salir.setForeground(new java.awt.Color(0, 0, 0));
-        salir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Facundo\\Documents\\GitHub\\Universidad88\\Universidad88\\src\\Imagenes\\cerrar-sesion.png")); // NOI18N
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cerrar-sesion.png"))); // NOI18N
         salir.setBorder(null);
         salir.setBorderPainted(false);
         salir.addActionListener(new java.awt.event.ActionListener() {
