@@ -51,11 +51,6 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
         jtNombre.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jtNombre.setForeground(new java.awt.Color(204, 204, 204));
         jtNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
-        jtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNombreActionPerformed(evt);
-            }
-        });
 
         jtDni.setBackground(new java.awt.Color(0, 102, 102));
         jtDni.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -225,10 +220,6 @@ public class AgregarAlumnos extends javax.swing.JInternalFrame {
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         this.dispose();
     }//GEN-LAST:event_salirActionPerformed
-
-    private void jtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

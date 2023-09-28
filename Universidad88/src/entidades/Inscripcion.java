@@ -60,8 +60,5 @@ public class Inscripcion {
         return "Inscripcion{" + "inscripcion=" + idInscripcion + ", alumno=" + alumno + ", materia=" + materia + ", nota=" + nota + '}';
     }
 
-   // public void setiDInscripto(int aInt) {
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    //}
-    
+  
 }

@@ -173,38 +173,6 @@ public class MateriaData {
         return listaMaterias;
 
     }
-/*
-    public List<Materia> listarMateriasPorEstado(boolean estado) {
-        Materia materia = null;
 
-        List<Materia> listaMateriasPorEstado = new ArrayList<>();
-        String sql = "SELECT * FROM materia WHERE estado = ?";
-        try {
-
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setBoolean(1, estado);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                materia = new Materia();
-                materia.setIdMateria(rs.getInt("id Materia"));
-                materia.setNombre(rs.getString("nombre"));
-                materia.setAnio(rs.getInt("anio"));
-                materia.setActivo(rs.getBoolean("estado"));
-
-                listaMateriasPorEstado.add(materia);
-
-                ps.close();
-
-            }
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos");
-        }
-
-        return listaMateriasPorEstado;
-
-    }*/
     
 }
